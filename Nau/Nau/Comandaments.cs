@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net.NetworkInformation;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AccesoDatos;
+using Controls03;
 
 namespace Nau
 {
@@ -20,6 +24,23 @@ namespace Nau
         }
 
         Thread Fil_ping;
+        Class1 bbdd = new Class1();
+        private void Comandaments_Load(object sender, EventArgs e)
+        {
+            foreach (Control ctr in Controls)
+            {
+                if (ctr.GetType() == typeof(SWComboFK))
+                {
+                    ctr.DataBindings.Clear();
+                    SWComboFK ctr1 = (SWComboFK)ctr;
+                    ctr1.CarregarCombo();
+                }
+            }
+            Codificar.Enabled = false;
+            //ValidationCode_Codificado.Margin = new Padding(10, 10, 10, 10);
+            //ValidationCode.TextAlign = TextAlignment.Center;
+
+        }
 
         private void ping()
         {
@@ -69,6 +90,7 @@ namespace Nau
             }
 
         }
+        
 
         private void btn_comprovarXarxa_Click(object sender, EventArgs e)
         {
@@ -76,6 +98,34 @@ namespace Nau
 
             Fil_ping = new Thread(ping);
             Fil_ping.Start();
+        }
+        byte[] encryptedData;
+        string xmlKey;
+        private void CatchKey_Click(object sender, EventArgs e)
+        {
+            string query = "SELECT ValidationCode FROM InnerEncryption where idPlanet = " + comboPlanet.SelectedValue;
+            string taula = "InnerEncryption";
+            ValidationCode.Text = bbdd.PortarPerTaula(taula,query).Rows[0][0].ToString();
+
+            string query_key = "SELECT XMLKey FROM PlanetKeys where idPlanet = " + comboPlanet.SelectedValue;
+            string taula_key = "PlanetKeys";
+            xmlKey = bbdd.PortarPerTaula(taula_key, query_key).Rows[0][0].ToString();
+
+            Codificar.Enabled = true;
+        }
+
+        private void Codificar_Click(object sender, EventArgs e)
+        {
+            UnicodeEncoding ByteConverter = new UnicodeEncoding();
+            byte[] dataToEncrypt = ByteConverter.GetBytes(ValidationCode.Text);
+
+            RSACryptoServiceProvider rsaEnc = new RSACryptoServiceProvider();
+
+            
+            rsaEnc.FromXmlString(xmlKey);
+            encryptedData = rsaEnc.Encrypt(dataToEncrypt, false);
+
+            ValidationCode_Codificado.Text = ByteConverter.GetString(encryptedData);
         }
     }
 }

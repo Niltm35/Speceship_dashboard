@@ -16,3 +16,14 @@ C:\Users\Nil\Documents\GitHub\Speceship_dashboard\PACS Inner Ring Validation\obj
 C:\Users\Nil\Documents\GitHub\Speceship_dashboard\PACS Inner Ring Validation\obj\Debug\PACS Inner Ring Validation.exe
 C:\Users\Nil\Documents\GitHub\Speceship_dashboard\PACS Inner Ring Validation\obj\Debug\PACS Inner Ring Validation.pdb
 C:\Users\Nil\Documents\GitHub\Speceship_dashboard\PACS Inner Ring Validation\obj\Debug\PACS Inner Ring Validation.csprojAssemblyReference.cache
+C:\Users\mirei\Desktop\PROYECTOS\Speceship_dashboard\dll\PACS Inner Ring Validation.exe.config
+C:\Users\mirei\Desktop\PROYECTOS\Speceship_dashboard\dll\PACS Inner Ring Validation.exe
+C:\Users\mirei\Desktop\PROYECTOS\Speceship_dashboard\dll\PACS Inner Ring Validation.pdb
+C:\Users\mirei\Desktop\PROYECTOS\Speceship_dashboard\PACS Inner Ring Validation\obj\Debug\PACS Inner Ring Validation.csprojAssemblyReference.cache
+C:\Users\mirei\Desktop\PROYECTOS\Speceship_dashboard\PACS Inner Ring Validation\obj\Debug\PACS_Inner_Ring_Validation.Form1.resources
+C:\Users\mirei\Desktop\PROYECTOS\Speceship_dashboard\PACS Inner Ring Validation\obj\Debug\PACS_Inner_Ring_Validation.Properties.Resources.resources
+C:\Users\mirei\Desktop\PROYECTOS\Speceship_dashboard\PACS Inner Ring Validation\obj\Debug\PACS Inner Ring Validation.csproj.GenerateResource.cache
+C:\Users\mirei\Desktop\PROYECTOS\Speceship_dashboard\PACS Inner Ring Validation\obj\Debug\PACS Inner Ring Validation.csproj.CoreCompileInputs.cache
+C:\Users\mirei\Desktop\PROYECTOS\Speceship_dashboard\PACS Inner Ring Validation\obj\Debug\PACS Inner Ring Validation.csproj.CopyComplete
+C:\Users\mirei\Desktop\PROYECTOS\Speceship_dashboard\PACS Inner Ring Validation\obj\Debug\PACS Inner Ring Validation.exe
+C:\Users\mirei\Desktop\PROYECTOS\Speceship_dashboard\PACS Inner Ring Validation\obj\Debug\PACS Inner Ring Validation.pdb

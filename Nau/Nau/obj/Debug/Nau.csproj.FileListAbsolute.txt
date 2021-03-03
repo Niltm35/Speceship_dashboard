@@ -9,3 +9,15 @@ C:\Users\kuri_\Desktop\Programas\Nau\Nau\obj\Debug\Nau.csproj.GenerateResource.c
 C:\Users\kuri_\Desktop\Programas\Nau\Nau\obj\Debug\Nau.csproj.CoreCompileInputs.cache
 C:\Users\kuri_\Desktop\Programas\Nau\Nau\obj\Debug\Nau.exe
 C:\Users\kuri_\Desktop\Programas\Nau\Nau\obj\Debug\Nau.pdb
+C:\Users\mirei\Desktop\PROYECTOS\Speceship_dashboard\Nau\Nau\obj\Debug\Nau.csprojAssemblyReference.cache
+C:\Users\mirei\Desktop\PROYECTOS\Speceship_dashboard\Nau\Nau\obj\Debug\Nau.Comandaments.resources
+C:\Users\mirei\Desktop\PROYECTOS\Speceship_dashboard\Nau\Nau\obj\Debug\Nau.Nau.resources
+C:\Users\mirei\Desktop\PROYECTOS\Speceship_dashboard\Nau\Nau\obj\Debug\Nau.Properties.Resources.resources
+C:\Users\mirei\Desktop\PROYECTOS\Speceship_dashboard\Nau\Nau\obj\Debug\Nau.csproj.GenerateResource.cache
+C:\Users\mirei\Desktop\PROYECTOS\Speceship_dashboard\Nau\Nau\obj\Debug\Nau.csproj.CoreCompileInputs.cache
+C:\Users\mirei\Desktop\PROYECTOS\Speceship_dashboard\Nau\Nau\obj\Debug\Nau.exe
+C:\Users\mirei\Desktop\PROYECTOS\Speceship_dashboard\Nau\Nau\obj\Debug\Nau.pdb
+C:\Users\mirei\Desktop\PROYECTOS\Speceship_dashboard\dll\Nau.exe.config
+C:\Users\mirei\Desktop\PROYECTOS\Speceship_dashboard\dll\Nau.exe
+C:\Users\mirei\Desktop\PROYECTOS\Speceship_dashboard\dll\Nau.pdb
+C:\Users\mirei\Desktop\PROYECTOS\Speceship_dashboard\Nau\Nau\obj\Debug\Nau.csproj.CopyComplete
