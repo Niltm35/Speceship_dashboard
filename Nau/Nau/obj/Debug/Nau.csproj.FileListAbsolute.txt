@@ -1,0 +1,11 @@
+C:\Users\kuri_\Desktop\Programas\Nau\Nau\bin\Debug\Nau.exe.config
+C:\Users\kuri_\Desktop\Programas\Nau\Nau\bin\Debug\Nau.exe
+C:\Users\kuri_\Desktop\Programas\Nau\Nau\bin\Debug\Nau.pdb
+C:\Users\kuri_\Desktop\Programas\Nau\Nau\obj\Debug\Nau.csprojAssemblyReference.cache
+C:\Users\kuri_\Desktop\Programas\Nau\Nau\obj\Debug\Nau.Comandaments.resources
+C:\Users\kuri_\Desktop\Programas\Nau\Nau\obj\Debug\Nau.Nau.resources
+C:\Users\kuri_\Desktop\Programas\Nau\Nau\obj\Debug\Nau.Properties.Resources.resources
+C:\Users\kuri_\Desktop\Programas\Nau\Nau\obj\Debug\Nau.csproj.GenerateResource.cache
+C:\Users\kuri_\Desktop\Programas\Nau\Nau\obj\Debug\Nau.csproj.CoreCompileInputs.cache
+C:\Users\kuri_\Desktop\Programas\Nau\Nau\obj\Debug\Nau.exe
+C:\Users\kuri_\Desktop\Programas\Nau\Nau\obj\Debug\Nau.pdb

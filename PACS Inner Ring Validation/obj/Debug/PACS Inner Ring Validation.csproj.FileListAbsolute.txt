@@ -1,0 +1,18 @@
+C:\Users\Nil\Documents\GitHub\Speceship_dashboard\PACS Inner Ring Validation\bin\Debug\PACS Inner Ring Validation.exe.config
+C:\Users\Nil\Documents\GitHub\Speceship_dashboard\PACS Inner Ring Validation\bin\Debug\PACS Inner Ring Validation.exe
+C:\Users\Nil\Documents\GitHub\Speceship_dashboard\PACS Inner Ring Validation\bin\Debug\PACS Inner Ring Validation.pdb
+C:\Users\Nil\Documents\GitHub\Speceship_dashboard\PACS Inner Ring Validation\bin\Debug\EntityFramework.dll
+C:\Users\Nil\Documents\GitHub\Speceship_dashboard\PACS Inner Ring Validation\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Nil\Documents\GitHub\Speceship_dashboard\PACS Inner Ring Validation\bin\Debug\EntityFramework.xml
+C:\Users\Nil\Documents\GitHub\Speceship_dashboard\PACS Inner Ring Validation\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Nil\Documents\GitHub\Speceship_dashboard\dll\PACS Inner Ring Validation.exe.config
+C:\Users\Nil\Documents\GitHub\Speceship_dashboard\dll\PACS Inner Ring Validation.exe
+C:\Users\Nil\Documents\GitHub\Speceship_dashboard\dll\PACS Inner Ring Validation.pdb
+C:\Users\Nil\Documents\GitHub\Speceship_dashboard\PACS Inner Ring Validation\obj\Debug\PACS_Inner_Ring_Validation.Form1.resources
+C:\Users\Nil\Documents\GitHub\Speceship_dashboard\PACS Inner Ring Validation\obj\Debug\PACS_Inner_Ring_Validation.Properties.Resources.resources
+C:\Users\Nil\Documents\GitHub\Speceship_dashboard\PACS Inner Ring Validation\obj\Debug\PACS Inner Ring Validation.csproj.GenerateResource.cache
+C:\Users\Nil\Documents\GitHub\Speceship_dashboard\PACS Inner Ring Validation\obj\Debug\PACS Inner Ring Validation.csproj.CoreCompileInputs.cache
+C:\Users\Nil\Documents\GitHub\Speceship_dashboard\PACS Inner Ring Validation\obj\Debug\PACS Inner Ring Validation.csproj.CopyComplete
+C:\Users\Nil\Documents\GitHub\Speceship_dashboard\PACS Inner Ring Validation\obj\Debug\PACS Inner Ring Validation.exe
+C:\Users\Nil\Documents\GitHub\Speceship_dashboard\PACS Inner Ring Validation\obj\Debug\PACS Inner Ring Validation.pdb
+C:\Users\Nil\Documents\GitHub\Speceship_dashboard\PACS Inner Ring Validation\obj\Debug\PACS Inner Ring Validation.csprojAssemblyReference.cache

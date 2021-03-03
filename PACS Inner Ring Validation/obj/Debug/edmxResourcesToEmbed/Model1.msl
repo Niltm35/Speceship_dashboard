@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="spaceshipboardModelStoreContainer" CdmEntityContainer="spaceshipboardEntities">
+    <EntitySetMapping Name="DeliveryDatas">
+      <EntityTypeMapping TypeName="spaceshipboardModel.DeliveryData">
+        <MappingFragment StoreEntitySet="DeliveryData">
+          <ScalarProperty Name="idDeliveryData" ColumnName="idDeliveryData" />
+          <ScalarProperty Name="CodeDelivery" ColumnName="CodeDelivery" />
+          <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
+          <ScalarProperty Name="idPlanet" ColumnName="idPlanet" />
+          <ScalarProperty Name="idSpaceShip" ColumnName="idSpaceShip" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InnerEncryptions">
+      <EntityTypeMapping TypeName="spaceshipboardModel.InnerEncryption">
+        <MappingFragment StoreEntitySet="InnerEncryption">
+          <ScalarProperty Name="idInnerEncryption" ColumnName="idInnerEncryption" />
+          <ScalarProperty Name="idPlanet" ColumnName="idPlanet" />
+          <ScalarProperty Name="ValidationCode" ColumnName="ValidationCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InnerEncryptionDatas">
+      <EntityTypeMapping TypeName="spaceshipboardModel.InnerEncryptionData">
+        <MappingFragment StoreEntitySet="InnerEncryptionData">
+          <ScalarProperty Name="idInnerEncryptionData" ColumnName="idInnerEncryptionData" />
+          <ScalarProperty Name="IdInnerEncryption" ColumnName="IdInnerEncryption" />
+          <ScalarProperty Name="Word" ColumnName="Word" />
+          <ScalarProperty Name="Numbers" ColumnName="Numbers" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PlanetKeys">
+      <EntityTypeMapping TypeName="spaceshipboardModel.PlanetKey">
+        <MappingFragment StoreEntitySet="PlanetKeys">
+          <ScalarProperty Name="idKey" ColumnName="idKey" />
+          <ScalarProperty Name="idPlanet" ColumnName="idPlanet" />
+          <ScalarProperty Name="XMLKey" ColumnName="XMLKey" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Planets">
+      <EntityTypeMapping TypeName="spaceshipboardModel.Planet">
+        <MappingFragment StoreEntitySet="Planets">
+          <ScalarProperty Name="idPlanet" ColumnName="idPlanet" />
+          <ScalarProperty Name="CodePlanet" ColumnName="CodePlanet" />
+          <ScalarProperty Name="DescPlanet" ColumnName="DescPlanet" />
+          <ScalarProperty Name="idSector" ColumnName="idSector" />
+          <ScalarProperty Name="long" ColumnName="long" />
+          <ScalarProperty Name="lat" ColumnName="lat" />
+          <ScalarProperty Name="parsecs" ColumnName="parsecs" />
+          <ScalarProperty Name="idNatives" ColumnName="idNatives" />
+          <ScalarProperty Name="idFiliation" ColumnName="idFiliation" />
+          <ScalarProperty Name="PlanetPicture" ColumnName="PlanetPicture" />
+          <ScalarProperty Name="IPPlanet" ColumnName="IPPlanet" />
+          <ScalarProperty Name="PortPlanet" ColumnName="PortPlanet" />
+          <ScalarProperty Name="PortPlanet1" ColumnName="PortPlanet1" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SpaceShips">
+      <EntityTypeMapping TypeName="spaceshipboardModel.SpaceShip">
+        <MappingFragment StoreEntitySet="SpaceShips">
+          <ScalarProperty Name="idSpaceShip" ColumnName="idSpaceShip" />
+          <ScalarProperty Name="idSpaceShipType" ColumnName="idSpaceShipType" />
+          <ScalarProperty Name="CodeSpaceShip" ColumnName="CodeSpaceShip" />
+          <ScalarProperty Name="IPSpaceShip" ColumnName="IPSpaceShip" />
+          <ScalarProperty Name="PortSpaceShip" ColumnName="PortSpaceShip" />
+          <ScalarProperty Name="PortSpaceShip1" ColumnName="PortSpaceShip1" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

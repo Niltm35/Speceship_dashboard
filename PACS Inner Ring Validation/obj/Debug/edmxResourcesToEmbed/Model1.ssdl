@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="spaceshipboardModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="DeliveryData">
+    <Key>
+      <PropertyRef Name="idDeliveryData" />
+    </Key>
+    <Property Name="idDeliveryData" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CodeDelivery" Type="nvarchar" MaxLength="12" />
+    <Property Name="DeliveryDate" Type="smalldatetime" />
+    <Property Name="idPlanet" Type="int" Nullable="false" />
+    <Property Name="idSpaceShip" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="InnerEncryption">
+    <Key>
+      <PropertyRef Name="idInnerEncryption" />
+    </Key>
+    <Property Name="idInnerEncryption" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idPlanet" Type="int" />
+    <Property Name="ValidationCode" Type="nvarchar" MaxLength="12" />
+  </EntityType>
+  <EntityType Name="InnerEncryptionData">
+    <Key>
+      <PropertyRef Name="idInnerEncryptionData" />
+    </Key>
+    <Property Name="idInnerEncryptionData" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdInnerEncryption" Type="int" />
+    <Property Name="Word" Type="nvarchar" MaxLength="1" />
+    <Property Name="Numbers" Type="nvarchar" MaxLength="3" />
+  </EntityType>
+  <EntityType Name="PlanetKeys">
+    <Key>
+      <PropertyRef Name="idKey" />
+    </Key>
+    <Property Name="idKey" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idPlanet" Type="int" Nullable="false" />
+    <Property Name="XMLKey" Type="xml" />
+  </EntityType>
+  <EntityType Name="Planets">
+    <Key>
+      <PropertyRef Name="idPlanet" />
+    </Key>
+    <Property Name="idPlanet" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CodePlanet" Type="nvarchar" MaxLength="12" />
+    <Property Name="DescPlanet" Type="nvarchar" MaxLength="50" />
+    <Property Name="idSector" Type="int" />
+    <Property Name="long" Type="nvarchar" MaxLength="12" />
+    <Property Name="lat" Type="nvarchar" MaxLength="12" />
+    <Property Name="parsecs" Type="nvarchar" MaxLength="12" />
+    <Property Name="idNatives" Type="int" />
+    <Property Name="idFiliation" Type="int" />
+    <Property Name="PlanetPicture" Type="nvarchar" MaxLength="200" />
+    <Property Name="IPPlanet" Type="nvarchar" MaxLength="15" />
+    <Property Name="PortPlanet" Type="nvarchar" MaxLength="4" />
+    <Property Name="PortPlanet1" Type="nvarchar" MaxLength="4" />
+  </EntityType>
+  <EntityType Name="SpaceShips">
+    <Key>
+      <PropertyRef Name="idSpaceShip" />
+    </Key>
+    <Property Name="idSpaceShip" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idSpaceShipType" Type="int" />
+    <Property Name="CodeSpaceShip" Type="nvarchar" MaxLength="12" />
+    <Property Name="IPSpaceShip" Type="nvarchar" MaxLength="15" />
+    <Property Name="PortSpaceShip" Type="nvarchar" MaxLength="4" />
+    <Property Name="PortSpaceShip1" Type="nvarchar" MaxLength="4" />
+  </EntityType>
+  <Association Name="FK_DeliveryData_Planets">
+    <End Role="Planets" Type="Self.Planets" Multiplicity="1" />
+    <End Role="DeliveryData" Type="Self.DeliveryData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Planets">
+        <PropertyRef Name="idPlanet" />
+      </Principal>
+      <Dependent Role="DeliveryData">
+        <PropertyRef Name="idPlanet" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DeliveryData_SpaceShips">
+    <End Role="SpaceShips" Type="Self.SpaceShips" Multiplicity="1" />
+    <End Role="DeliveryData" Type="Self.DeliveryData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SpaceShips">
+        <PropertyRef Name="idSpaceShip" />
+      </Principal>
+      <Dependent Role="DeliveryData">
+        <PropertyRef Name="idSpaceShip" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InnerEncryption_Planets">
+    <End Role="Planets" Type="Self.Planets" Multiplicity="0..1" />
+    <End Role="InnerEncryption" Type="Self.InnerEncryption" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Planets">
+        <PropertyRef Name="idPlanet" />
+      </Principal>
+      <Dependent Role="InnerEncryption">
+        <PropertyRef Name="idPlanet" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InnerEncryptionData_InnerEncryption">
+    <End Role="InnerEncryption" Type="Self.InnerEncryption" Multiplicity="0..1" />
+    <End Role="InnerEncryptionData" Type="Self.InnerEncryptionData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InnerEncryption">
+        <PropertyRef Name="idInnerEncryption" />
+      </Principal>
+      <Dependent Role="InnerEncryptionData">
+        <PropertyRef Name="IdInnerEncryption" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PlanetKeys_Planets">
+    <End Role="Planets" Type="Self.Planets" Multiplicity="1" />
+    <End Role="PlanetKeys" Type="Self.PlanetKeys" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Planets">
+        <PropertyRef Name="idPlanet" />
+      </Principal>
+      <Dependent Role="PlanetKeys">
+        <PropertyRef Name="idPlanet" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="spaceshipboardModelStoreContainer">
+    <EntitySet Name="DeliveryData" EntityType="Self.DeliveryData" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InnerEncryption" EntityType="Self.InnerEncryption" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InnerEncryptionData" EntityType="Self.InnerEncryptionData" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PlanetKeys" EntityType="Self.PlanetKeys" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Planets" EntityType="Self.Planets" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SpaceShips" EntityType="Self.SpaceShips" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_DeliveryData_Planets" Association="Self.FK_DeliveryData_Planets">
+      <End Role="Planets" EntitySet="Planets" />
+      <End Role="DeliveryData" EntitySet="DeliveryData" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DeliveryData_SpaceShips" Association="Self.FK_DeliveryData_SpaceShips">
+      <End Role="SpaceShips" EntitySet="SpaceShips" />
+      <End Role="DeliveryData" EntitySet="DeliveryData" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InnerEncryption_Planets" Association="Self.FK_InnerEncryption_Planets">
+      <End Role="Planets" EntitySet="Planets" />
+      <End Role="InnerEncryption" EntitySet="InnerEncryption" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InnerEncryptionData_InnerEncryption" Association="Self.FK_InnerEncryptionData_InnerEncryption">
+      <End Role="InnerEncryption" EntitySet="InnerEncryption" />
+      <End Role="InnerEncryptionData" EntitySet="InnerEncryptionData" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PlanetKeys_Planets" Association="Self.FK_PlanetKeys_Planets">
+      <End Role="Planets" EntitySet="Planets" />
+      <End Role="PlanetKeys" EntitySet="PlanetKeys" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
