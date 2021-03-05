@@ -122,8 +122,8 @@ namespace PACS_Inner_Ring_Validation
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            progressBar1.ForeColor = Color.Blue;
-            progressBar1.BackColor = Color.Black;
+            progressBar1.ForeColor = Color.Green;
+            progressBar1.BackColor = Color.LightBlue;
 
             progressBar1.Value += 1;
             if (progressBar1.Value == 100)

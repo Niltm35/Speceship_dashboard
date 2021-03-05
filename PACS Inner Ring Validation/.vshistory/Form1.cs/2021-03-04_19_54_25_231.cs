@@ -52,7 +52,7 @@ namespace PACS_Inner_Ring_Validation
         {
             string SELECT_innerencryption = "SELECT * FROM InnerEncryption";
             string TAULA_innerencryption = "InnerEncryption";
-            
+            Application.EnableVisualStyles();
             //dataGridView1.DataSource = bbdd.PortarPerTaula(taula, query);
             foreach (Control ctr in Controls)
             {
@@ -122,8 +122,8 @@ namespace PACS_Inner_Ring_Validation
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            progressBar1.ForeColor = Color.Blue;
-            progressBar1.BackColor = Color.Black;
+            progressBar1.ForeColor = Color.Green;
+            progressBar1.BackColor = Color.LightBlue;
 
             progressBar1.Value += 1;
             if (progressBar1.Value == 100)
