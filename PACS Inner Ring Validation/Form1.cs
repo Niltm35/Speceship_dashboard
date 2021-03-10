@@ -238,7 +238,7 @@ namespace PACS_Inner_Ring_Validation
 
 
             var zipFile = Application.StartupPath + "\\Fitxers\\PACS.zip";
-            var files = Directory.GetFiles(@"Fitxers\");
+            var files = Directory.GetFiles(@"Fitxers\Lletres");
 
             if (File.Exists(zipFile))
             {
