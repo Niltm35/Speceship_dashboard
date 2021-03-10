@@ -11,8 +11,12 @@ using Controls03;
 using AccesoDatos;
 using System.Security.Cryptography;
 using System.IO;
+using System.Threading;
 using System.Runtime.InteropServices;
-
+using System.Net.NetworkInformation;
+using System.Net.Sockets;
+using System.Net;
+using System.IO.Compression;
 
 namespace PACS_Inner_Ring_Validation
 {
@@ -22,9 +26,13 @@ namespace PACS_Inner_Ring_Validation
         public Form1()
         {
             InitializeComponent();
+            Control.CheckForIllegalCrossThreadCalls = false;
         }
 
         Class1 bbdd = new Class1();
+
+        Dictionary<string, string> diccionari = new Dictionary<string, string>();
+
         private static Random random = new Random();
         public static string RandomString(int length)
         {
@@ -34,25 +42,25 @@ namespace PACS_Inner_Ring_Validation
 
         private void ValidationGenerate_button_Click(object sender, EventArgs e)
         {
-            string hola = RandomString(10);
+            string ValidationCode = RandomString(12);
             string taula = "InnerEncryption";
-            string query = "UPDATE InnerEncryption SET idPlanet = "+ comboPlanets.SelectedValue + ", ValidationCode = '" + hola + "' WHERE idPlanet = "+ comboPlanets.SelectedValue + "";
+            string query = "UPDATE InnerEncryption SET idPlanet = "+ comboPlanets.SelectedValue + ", ValidationCode = '" + ValidationCode + "' WHERE idPlanet = "+ comboPlanets.SelectedValue + "";
             //string query = "INSERT INTO InnerEncryption (idPlanet,ValidationCode) VALUES (1,'" + hola + "')";
             string query1 = "SELECT * FROM InnerEncryption";
 
             bbdd.PortarPerTaula(taula, query);
-            //dataGridView1.DataSource = bbdd.PortarPerTaula(taula,query1);
-            //comboBox1.ValueMember = "cLoadName";
-            //combobox1.DisplayMember = "cLoadName";
-            //combobox1.DataSource = ds;
-            //combobox1.DataBind();
+            textBox1.Text = "Validation Code:\r\n" + ValidationCode;
         }
-
+        
         private void Form1_Load(object sender, EventArgs e)
         {
+            label1.Text = "SpaceShip Detected!!";
+            axWindowsMediaPlayer1.URL = @"Images\tie-fighter6-lento.gif";
+            axWindowsMediaPlayer1.uiMode = "none";
+            axWindowsMediaPlayer1.settings.setMode("loop", true);
+
             string SELECT_innerencryption = "SELECT * FROM InnerEncryption";
             string TAULA_innerencryption = "InnerEncryption";
-            //dataGridView1.DataSource = bbdd.PortarPerTaula(taula, query);
             foreach (Control ctr in Controls)
             {
                 if (ctr.GetType() == typeof(SWComboFK))
@@ -60,11 +68,11 @@ namespace PACS_Inner_Ring_Validation
                     ctr.DataBindings.Clear();
                     SWComboFK ctr1 = (SWComboFK)ctr;
                     ctr1.CarregarCombo();
-                    //ctr1.DataBindings.Add("SelectedValue", dataGridView1.DataSource, ctr1.CampId);
-                    //ctr1.DataSource = bbdd.PortarPerTaula("Planets", "SELECT idPlanet FROM Planets");
-                    //ctr1.DataBindings.Add("SelectedValue", dataGridView1.DataSource, ctr1.CampId);
                 }
             }
+
+            IP_Planet = dd().Tables[0].Rows[0][10].ToString();
+            Port_Planet = dd().Tables[0].Rows[0][11].ToString();
             //progressBar1.Value = 100;
         }
 
@@ -104,7 +112,7 @@ namespace PACS_Inner_Ring_Validation
 
         private void Desencriptar_button_Click(object sender, EventArgs e)
         {
-            string SELECT_planets = "SELECT CodePlanet FROM Planets where idPlanet = " + comboPlanets.SelectedValue + " ORDER BY CodePlanet DESC";
+            string SELECT_planets = "SELECT CodePlanet FROM Planets where idPlanet = " + comboPlanets.SelectedValue;
             string TAULA_planets = "Planets";
             string keyName = bbdd.PortarPerTaula(TAULA_planets, SELECT_planets).Rows[0][0].ToString();
             CspParameters cspParams = new CspParameters();
@@ -121,9 +129,6 @@ namespace PACS_Inner_Ring_Validation
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            //progressBar1.ForeColor = Color.Green;
-            //progressBar1.BackColor = Color.LightBlue;
-
             progressBar1.Value += 1;
             if (progressBar1.Value == 100)
             {
@@ -131,8 +136,6 @@ namespace PACS_Inner_Ring_Validation
                 this.DialogResult = DialogResult.OK;
             }
         }
-<<<<<<< Updated upstream
-=======
         
         Thread fil_codificacion_letra;
         Thread fil_codificacion_num;
@@ -440,6 +443,5 @@ namespace PACS_Inner_Ring_Validation
                 ns.Close();
             }
         }
->>>>>>> Stashed changes
     }
 }
