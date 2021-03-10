@@ -16,3 +16,6 @@ C:\Users\Nil\Documents\GitHub\Speceship_dashboard\PACS Inner Ring Validation\obj
 C:\Users\Nil\Documents\GitHub\Speceship_dashboard\PACS Inner Ring Validation\obj\Debug\PACS Inner Ring Validation.exe
 C:\Users\Nil\Documents\GitHub\Speceship_dashboard\PACS Inner Ring Validation\obj\Debug\PACS Inner Ring Validation.pdb
 C:\Users\Nil\Documents\GitHub\Speceship_dashboard\PACS Inner Ring Validation\obj\Debug\PACS Inner Ring Validation.csprojAssemblyReference.cache
+C:\Users\Nil\Documents\GitHub\Speceship_dashboard\PACS Inner Ring Validation\obj\Debug\Interop.WMPLib.dll
+C:\Users\Nil\Documents\GitHub\Speceship_dashboard\PACS Inner Ring Validation\obj\Debug\AxInterop.WMPLib.dll
+C:\Users\Nil\Documents\GitHub\Speceship_dashboard\PACS Inner Ring Validation\obj\Debug\PACS Inner Ring Validation.csproj.ResolveComReference.cache
