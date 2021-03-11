@@ -70,11 +70,7 @@ namespace PACS_Inner_Ring_Validation
                     ctr1.CarregarCombo();
                 }
             }
-
-            IP_Planet = dd().Tables[0].Rows[0][10].ToString();
-            Port_Planet = dd().Tables[0].Rows[0][11].ToString();
-            //progressBar1.Value = 100;
-        }
+}
 
         private void KeyGenerator_button_Click(object sender, EventArgs e)
         {
@@ -255,23 +251,33 @@ namespace PACS_Inner_Ring_Validation
             fil_codificacion_letra.Abort();
         }
 
-        //-----------------CLIENT--------------------------------
+        //-----------------CLIENT--------------------------------------
         Thread Fil_ping;
         string IP_Planet;
         string Port_Planet;
+        string IP_Nau;
+        string Port_Nau;
 
-        public DataSet dd()
+        public DataSet TaulaPlanet()
         {
-            string SELECT = "SELECT * FROM Planets where idPlanet = " + comboPlanets.SelectedValue;
+            string SELECT = "SELECT * FROM Planets where idPlanet = " + comboPlanet.SelectedValue;
             string TAULA = "Planets";
             DataSet Data_Planet = bbdd.PortarPerConsulta(SELECT, TAULA);
             return Data_Planet;
         }
-        private void comboPlanets_SelectedIndexChanged(object sender, EventArgs e)
+        public DataSet TaulaNau()
         {
-            IP_Planet = dd().Tables[0].Rows[0][10].ToString();
-            Port_Planet = dd().Tables[0].Rows[0][11].ToString();
-            //progressBar1.Value = 100;
+            string SELECT = "SELECT * FROM SpaceShips where idSpaceShip = " + comboNau.SelectedValue;
+            string TAULA = "SpaceShips";
+            DataSet Data_Nau = bbdd.PortarPerConsulta(SELECT, TAULA);
+            return Data_Nau;
+        }
+        public DataSet TaulaDelivery()
+        {
+            string SELECT = "SELECT * FROM DeliveryData where idDeliveryData = " + comboDelivery.SelectedValue;
+            string TAULA = "DeliveryData";
+            DataSet Data_Delivery = bbdd.PortarPerConsulta(SELECT, TAULA);
+            return Data_Delivery;
         }
 
         private void ping()
@@ -293,35 +299,30 @@ namespace PACS_Inner_Ring_Validation
                 string Estado = "";
                 for (int i = 1; i <= 10; i++)
                 {
-                    reply = myPing.Send(IP_Planet, 8888);
-
+                    reply = myPing.Send("8.8.8.8", Convert.ToInt32("8080"));
 
                     if (reply.Address != null)
                     {
                         Estado = "OK";
-                        //Thread.Sleep(10);
                     }
                     else
                     {
                         Estado = "NOK";
                     }
-                    lbx_console.Items.Add("Ping" + i + " - " + Estado);
-                    
+                    lbx_console.Items.Add("Ping " + i + " - " + Estado);
+                    Thread.Sleep(100);
                 }
                 if (Estado.Equals("NOK"))
                 {
                     pnl_status.BackColor = Color.Red;
                     btn_comprovarXarxa.Enabled = true;
                     btn_desconnect.Enabled = false;
-                    lb_statusInfo.Text = "Ping no contesta o Xarxa no disponible";
                 }
                 else
                 {
                     pnl_status.BackColor = Color.Green;
                     btn_comprovarXarxa.Enabled = true;
                     btn_desconnect.Enabled = true;
-                    btn_sendMessage.Enabled = true;
-                    lb_statusInfo.Text = "Connexió correcta";
                 }
             }
             else
@@ -329,43 +330,33 @@ namespace PACS_Inner_Ring_Validation
                 pnl_status.BackColor = Color.Red;
             }
         }
+
         private void btn_comprovarXarxa_Click(object sender, EventArgs e)
         {
             lbx_console.Items.Clear();
 
             Fil_ping = new Thread(ping);
             Fil_ping.Start();
+            btn_sendMessage.Enabled = true;
+            btn_desconnect.Enabled = true;
         }
-
-        private void btn_sendMessage_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                TcpClient client = new TcpClient(IP_Planet, Convert.ToInt32(Port_Planet));
-                if (txb_message.Text == "")
-                {
-                    MessageBox.Show("El missatge no por estar buit");
-                }
-                else
-                {
-                    Byte[] dades = Encoding.ASCII.GetBytes(txb_message.Text);
-                    NetworkStream ns = client.GetStream();
-                    ns.Write(dades, 0, dades.Length);
-                }
-            }
-            catch
-            {
-                MessageBox.Show("Servidor inaccessible");
-            }
-        }
-
+        
+        
         private void btn_desconnect_Click(object sender, EventArgs e)
         {
-            cerrar();
+            if (this.Fil_ping != null)
+            {
+                Fil_ping.Abort();
+            }
+            pnl_status.BackColor = Color.Red;
+            lbx_console.Items.Clear();
+            txb_message.Text = "";
+            btn_sendMessage.Enabled = false;
+            btn_desconnect.Enabled = false;
         }
 
-        //-----------------FIN CLIENT--------------------------------
-        //-----------------SERVIDOR--------------------------------
+        //-----------------FIN CLIENT----------------------------------
+        //-----------------SERVIDOR------------------------------------
 
         Thread comprobacio_conexio;
 
@@ -376,21 +367,38 @@ namespace PACS_Inner_Ring_Validation
                 comprobacio_conexio = new Thread(conexio);
                 comprobacio_conexio.Start();
                 IsConnected = true;
+                label1.Text = "Conectado";
             }
-
         }
         Boolean IsConnected;
         TcpClient client;
         TcpListener Listener = null;
         NetworkStream ns;
 
+        public string LocalIPAddress()
+        {
+            IPHostEntry host;
+            string localIP = "";
+            host = Dns.GetHostEntry(Dns.GetHostName());
+
+            foreach (IPAddress ip in host.AddressList)
+            {
+                if (ip.AddressFamily == AddressFamily.InterNetwork)
+                {
+                    localIP = ip.ToString();
+                    break;
+                }
+            }
+            return localIP;
+        }
+
         public void conexio()
         {
             try
             {
-                Listener = new TcpListener(IPAddress.Any, Convert.ToInt32(Port_Planet));
+                Listener = new TcpListener(IPAddress.Any, Convert.ToInt32(Port_Nau));
                 Listener.Start();
-
+                //string gg = LocalIPAddress();
                 while (IsConnected)
                 {
                     if (Listener.Pending())
@@ -402,8 +410,10 @@ namespace PACS_Inner_Ring_Validation
                         string data = "";
                         ns.Read(buffer, 0, buffer.Length);
                         data = Encoding.ASCII.GetString(buffer, 0, buffer.Length);
-                        lbx_Missatges.Items.Add("IP: " + "la Nau" + " ha enviat: " + data);
+                        lbx_Missatges.Items.Add("IP la Nau ha enviat: " + data);
+                        
                     }
+
                 }
             }
             catch (Exception ex)
@@ -416,6 +426,7 @@ namespace PACS_Inner_Ring_Validation
         {
             lbx_Missatges.Items.Clear();
             cerrar();
+            label1.Text = "Desconectado";
         }
 
         private void frmServer_FormClosing(object sender, FormClosingEventArgs e)
@@ -430,23 +441,41 @@ namespace PACS_Inner_Ring_Validation
             {
                 comprobacio_conexio.Abort();
             }
+
             if (this.Listener != null)
             {
                 Listener.Stop();
             }
+
             if (this.client != null)
             {
                 client.Close();
             }
+
             if (this.ns != null)
             {
                 ns.Close();
             }
         }
 
-        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        private void botoN_X1_Click(object sender, EventArgs e)
         {
-
+            cerrar();
         }
+
+        private void comboNau_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Port_Nau = TaulaNau().Tables[0].Rows[0][4].ToString();
+            IP_Nau = TaulaNau().Tables[0].Rows[0][3].ToString();
+        }
+
+        private void comboPlanet_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            IP_Planet = TaulaPlanet().Tables[0].Rows[0][10].ToString();
+            Port_Planet = TaulaPlanet().Tables[0].Rows[0][11].ToString();
+        }
+
+        //-----------------FIN SERVIDOR--------------------------------
+
     }
 }

@@ -56,9 +56,9 @@
             this.btn_sendMessage = new System.Windows.Forms.Button();
             this.btn_comprovarXarxa = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.comboNau = new System.Windows.Forms.ComboBox();
+            this.comboPlanet = new System.Windows.Forms.ComboBox();
+            this.comboDelivery = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -98,7 +98,6 @@
             this.comboPlanets.nomTaula = "Planets";
             this.comboPlanets.Size = new System.Drawing.Size(156, 26);
             this.comboPlanets.TabIndex = 5;
-            this.comboPlanets.SelectionChangeCommitted += new System.EventHandler(this.comboPlanets_SelectedIndexChanged);
             // 
             // KeyGenerator_button
             // 
@@ -268,7 +267,6 @@
             this.desc.TabIndex = 1;
             this.desc.Text = "desc";
             this.desc.UseVisualStyleBackColor = true;
-            this.desc.Click += new System.EventHandler(this.btn_desconnect_serv_Click);
             // 
             // conectar
             // 
@@ -276,9 +274,8 @@
             this.conectar.Name = "conectar";
             this.conectar.Size = new System.Drawing.Size(75, 23);
             this.conectar.TabIndex = 0;
-            this.conectar.Text = "co";
+            this.conectar.Text = "connect";
             this.conectar.UseVisualStyleBackColor = true;
-            this.conectar.Click += new System.EventHandler(this.btn_connect_serv_Click);
             // 
             // groupBox2
             // 
@@ -335,7 +332,6 @@
             this.btn_desconnect.TabIndex = 2;
             this.btn_desconnect.Text = "desc";
             this.btn_desconnect.UseVisualStyleBackColor = true;
-            this.btn_desconnect.Click += new System.EventHandler(this.btn_desconnect_Click);
             // 
             // btn_sendMessage
             // 
@@ -345,7 +341,6 @@
             this.btn_sendMessage.TabIndex = 1;
             this.btn_sendMessage.Text = "send";
             this.btn_sendMessage.UseVisualStyleBackColor = true;
-            this.btn_sendMessage.Click += new System.EventHandler(this.btn_sendMessage_Click);
             // 
             // btn_comprovarXarxa
             // 
@@ -355,7 +350,6 @@
             this.btn_comprovarXarxa.TabIndex = 0;
             this.btn_comprovarXarxa.Text = "compxarx";
             this.btn_comprovarXarxa.UseVisualStyleBackColor = true;
-            this.btn_comprovarXarxa.Click += new System.EventHandler(this.btn_comprovarXarxa_Click);
             // 
             // comboBox1
             // 
@@ -365,29 +359,35 @@
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 18;
             // 
-            // comboBox2
+            // comboNau
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(553, 333);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 18;
+            this.comboNau.DisplayMember = "codeSpaceShip";
+            this.comboNau.FormattingEnabled = true;
+            this.comboNau.Location = new System.Drawing.Point(579, 333);
+            this.comboNau.Name = "comboNau";
+            this.comboNau.Size = new System.Drawing.Size(121, 21);
+            this.comboNau.TabIndex = 18;
+            this.comboNau.ValueMember = "idSpaceShip";
             // 
-            // comboBox3
+            // comboPlanet
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(735, 333);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(121, 21);
-            this.comboBox3.TabIndex = 19;
+            this.comboPlanet.DisplayMember = "DescPlanet";
+            this.comboPlanet.FormattingEnabled = true;
+            this.comboPlanet.Location = new System.Drawing.Point(735, 333);
+            this.comboPlanet.Name = "comboPlanet";
+            this.comboPlanet.Size = new System.Drawing.Size(121, 21);
+            this.comboPlanet.TabIndex = 19;
+            this.comboPlanet.ValueMember = "idPlanet";
             // 
-            // comboBox4
+            // comboDelivery
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(937, 333);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(121, 21);
-            this.comboBox4.TabIndex = 20;
+            this.comboDelivery.DisplayMember = "CodeDelivery";
+            this.comboDelivery.FormattingEnabled = true;
+            this.comboDelivery.Location = new System.Drawing.Point(889, 333);
+            this.comboDelivery.Name = "comboDelivery";
+            this.comboDelivery.Size = new System.Drawing.Size(121, 21);
+            this.comboDelivery.TabIndex = 20;
+            this.comboDelivery.ValueMember = "idDeliveryData";
             // 
             // Form1
             // 
@@ -396,9 +396,9 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1366, 768);
-            this.Controls.Add(this.comboBox4);
-            this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.comboDelivery);
+            this.Controls.Add(this.comboPlanet);
+            this.Controls.Add(this.comboNau);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -457,9 +457,9 @@
         private System.Windows.Forms.Button btn_sendMessage;
         private System.Windows.Forms.Button btn_comprovarXarxa;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox comboNau;
+        private System.Windows.Forms.ComboBox comboPlanet;
+        private System.Windows.Forms.ComboBox comboDelivery;
     }
 }
 
