@@ -40,8 +40,6 @@
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.botoN_MIN1 = new Controls03.BOTON_MIN();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-<<<<<<< Updated upstream
-=======
             this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -57,35 +55,26 @@
             this.btn_desconnect = new System.Windows.Forms.Button();
             this.btn_sendMessage = new System.Windows.Forms.Button();
             this.btn_comprovarXarxa = new System.Windows.Forms.Button();
-            this.comboNau = new System.Windows.Forms.ComboBox();
-            this.comboPlanet = new System.Windows.Forms.ComboBox();
-            this.comboDelivery = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
->>>>>>> Stashed changes
             this.SuspendLayout();
             // 
             // ValidationGenerate_button
             // 
             this.ValidationGenerate_button.BackColor = System.Drawing.Color.Transparent;
-            this.ValidationGenerate_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
+            this.ValidationGenerate_button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ValidationGenerate_button.FlatAppearance.BorderSize = 0;
+            this.ValidationGenerate_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.ValidationGenerate_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.ValidationGenerate_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-            this.ValidationGenerate_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-=======
-            this.ValidationGenerate_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
->>>>>>> Stashed changes
-=======
-            this.ValidationGenerate_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
->>>>>>> Stashed changes
+            this.ValidationGenerate_button.Font = new System.Drawing.Font("Montserrat", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ValidationGenerate_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(203)))), ((int)(((byte)(207)))));
-            this.ValidationGenerate_button.Location = new System.Drawing.Point(767, 167);
+            this.ValidationGenerate_button.Location = new System.Drawing.Point(43, 438);
             this.ValidationGenerate_button.Name = "ValidationGenerate_button";
-            this.ValidationGenerate_button.Size = new System.Drawing.Size(174, 30);
+            this.ValidationGenerate_button.Size = new System.Drawing.Size(160, 38);
             this.ValidationGenerate_button.TabIndex = 1;
-            this.ValidationGenerate_button.Text = "ValidationCode";
+            this.ValidationGenerate_button.Text = "Validation Code";
             this.ValidationGenerate_button.UseVisualStyleBackColor = false;
             this.ValidationGenerate_button.Click += new System.EventHandler(this.ValidationGenerate_button_Click);
             // 
@@ -100,30 +89,26 @@
             this.comboPlanets.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(203)))), ((int)(((byte)(207)))));
             this.comboPlanets.FormattingEnabled = true;
             this.comboPlanets.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.comboPlanets.Location = new System.Drawing.Point(776, 111);
+            this.comboPlanets.Location = new System.Drawing.Point(1173, 135);
             this.comboPlanets.Name = "comboPlanets";
             this.comboPlanets.nomTaula = "Planets";
-            this.comboPlanets.Size = new System.Drawing.Size(149, 26);
+            this.comboPlanets.Size = new System.Drawing.Size(156, 26);
             this.comboPlanets.TabIndex = 5;
+            this.comboPlanets.SelectionChangeCommitted += new System.EventHandler(this.comboPlanets_SelectedIndexChanged);
             // 
             // KeyGenerator_button
             // 
             this.KeyGenerator_button.BackColor = System.Drawing.Color.Transparent;
-            this.KeyGenerator_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
+            this.KeyGenerator_button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.KeyGenerator_button.FlatAppearance.BorderSize = 0;
+            this.KeyGenerator_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.KeyGenerator_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.KeyGenerator_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-            this.KeyGenerator_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-=======
-            this.KeyGenerator_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
->>>>>>> Stashed changes
-=======
-            this.KeyGenerator_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
->>>>>>> Stashed changes
+            this.KeyGenerator_button.Font = new System.Drawing.Font("Montserrat", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KeyGenerator_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(203)))), ((int)(((byte)(207)))));
-            this.KeyGenerator_button.Location = new System.Drawing.Point(767, 212);
+            this.KeyGenerator_button.Location = new System.Drawing.Point(1178, 222);
             this.KeyGenerator_button.Name = "KeyGenerator_button";
-            this.KeyGenerator_button.Size = new System.Drawing.Size(174, 30);
+            this.KeyGenerator_button.Size = new System.Drawing.Size(144, 80);
             this.KeyGenerator_button.TabIndex = 6;
             this.KeyGenerator_button.Text = "PublicKey";
             this.KeyGenerator_button.UseVisualStyleBackColor = false;
@@ -132,36 +117,39 @@
             // Desencriptar_button
             // 
             this.Desencriptar_button.BackColor = System.Drawing.Color.Transparent;
-            this.Desencriptar_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
+            this.Desencriptar_button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Desencriptar_button.FlatAppearance.BorderSize = 0;
+            this.Desencriptar_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.Desencriptar_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.Desencriptar_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-            this.Desencriptar_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-=======
-            this.Desencriptar_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
->>>>>>> Stashed changes
-=======
-            this.Desencriptar_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
->>>>>>> Stashed changes
+            this.Desencriptar_button.Font = new System.Drawing.Font("Montserrat", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Desencriptar_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(203)))), ((int)(((byte)(207)))));
-            this.Desencriptar_button.Location = new System.Drawing.Point(767, 255);
+            this.Desencriptar_button.Location = new System.Drawing.Point(1178, 365);
             this.Desencriptar_button.Name = "Desencriptar_button";
-            this.Desencriptar_button.Size = new System.Drawing.Size(174, 30);
+            this.Desencriptar_button.Size = new System.Drawing.Size(144, 80);
             this.Desencriptar_button.TabIndex = 7;
-            this.Desencriptar_button.Text = "Desencriptar";
+            this.Desencriptar_button.Text = "Decript";
             this.Desencriptar_button.UseVisualStyleBackColor = false;
             this.Desencriptar_button.Click += new System.EventHandler(this.Desencriptar_button_Click);
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(293, 109);
+            this.textBox1.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(203)))), ((int)(((byte)(207)))));
+            this.textBox1.Location = new System.Drawing.Point(29, 358);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(254, 111);
+            this.textBox1.Size = new System.Drawing.Size(185, 43);
             this.textBox1.TabIndex = 8;
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox2
             // 
+            this.textBox2.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(203)))), ((int)(((byte)(207)))));
             this.textBox2.Location = new System.Drawing.Point(293, 234);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
@@ -176,19 +164,22 @@
             this.botoN_X1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.botoN_X1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.botoN_X1.FlatAppearance.BorderSize = 0;
+            this.botoN_X1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.botoN_X1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.botoN_X1.Location = new System.Drawing.Point(1331, 8);
+            this.botoN_X1.Location = new System.Drawing.Point(1331, 7);
             this.botoN_X1.Name = "botoN_X1";
             this.botoN_X1.Size = new System.Drawing.Size(27, 27);
             this.botoN_X1.TabIndex = 10;
+            this.botoN_X1.Text = " ";
             this.botoN_X1.UseVisualStyleBackColor = false;
             // 
             // progressBar1
             // 
+            this.progressBar1.AccessibleRole = System.Windows.Forms.AccessibleRole.ProgressBar;
             this.progressBar1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.progressBar1.BackColor = System.Drawing.Color.Black;
             this.progressBar1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(203)))), ((int)(((byte)(207)))));
-            this.progressBar1.Location = new System.Drawing.Point(959, 595);
+            this.progressBar1.Location = new System.Drawing.Point(949, 554);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(109, 14);
             this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
@@ -202,8 +193,9 @@
             this.botoN_MIN1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.botoN_MIN1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.botoN_MIN1.FlatAppearance.BorderSize = 0;
+            this.botoN_MIN1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.botoN_MIN1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.botoN_MIN1.Location = new System.Drawing.Point(1294, 8);
+            this.botoN_MIN1.Location = new System.Drawing.Point(1294, 7);
             this.botoN_MIN1.Name = "botoN_MIN1";
             this.botoN_MIN1.Size = new System.Drawing.Size(27, 27);
             this.botoN_MIN1.TabIndex = 12;
@@ -214,8 +206,6 @@
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-<<<<<<< Updated upstream
-=======
             // axWindowsMediaPlayer1
             // 
             this.axWindowsMediaPlayer1.Enabled = true;
@@ -244,6 +234,7 @@
             this.button1.TabIndex = 15;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // groupBox1
             // 
@@ -273,7 +264,7 @@
             this.desc.TabIndex = 1;
             this.desc.Text = "desc";
             this.desc.UseVisualStyleBackColor = true;
-            this.desc.Click += new System.EventHandler(this.btn_connect_serv_Click);
+            this.desc.Click += new System.EventHandler(this.btn_desconnect_serv_Click);
             // 
             // conectar
             // 
@@ -362,61 +353,18 @@
             this.btn_comprovarXarxa.UseVisualStyleBackColor = true;
             this.btn_comprovarXarxa.Click += new System.EventHandler(this.btn_comprovarXarxa_Click);
             // 
-            // comboNau
-            // 
-            this.comboNau.DisplayMember = "codeSpaceShip";
-            this.comboNau.FormattingEnabled = true;
-            this.comboNau.Location = new System.Drawing.Point(553, 331);
-            this.comboNau.Name = "comboNau";
-            this.comboNau.Size = new System.Drawing.Size(121, 21);
-            this.comboNau.TabIndex = 18;
-            this.comboNau.ValueMember = "idSpaceShip";
-            this.comboNau.SelectedIndexChanged += new System.EventHandler(this.comboNau_SelectedIndexChanged);
-            // 
-            // comboPlanet
-            // 
-            this.comboPlanet.DisplayMember = "DescPlanet";
-            this.comboPlanet.FormattingEnabled = true;
-            this.comboPlanet.Location = new System.Drawing.Point(736, 331);
-            this.comboPlanet.Name = "comboPlanet";
-            this.comboPlanet.Size = new System.Drawing.Size(121, 21);
-            this.comboPlanet.TabIndex = 19;
-            this.comboPlanet.ValueMember = "idPlanet";
-            this.comboPlanet.SelectedIndexChanged += new System.EventHandler(this.comboPlanet_SelectedIndexChanged);
-            // 
-            // comboDelivery
-            // 
-            this.comboDelivery.DisplayMember = "CodeDelivery";
-            this.comboDelivery.FormattingEnabled = true;
-            this.comboDelivery.Location = new System.Drawing.Point(921, 331);
-            this.comboDelivery.Name = "comboDelivery";
-            this.comboDelivery.Size = new System.Drawing.Size(121, 21);
-            this.comboDelivery.TabIndex = 20;
-            this.comboDelivery.ValueMember = "idDeliveryData";
-            // 
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-<<<<<<< Updated upstream
-            this.ClientSize = new System.Drawing.Size(1386, 788);
-=======
             this.ClientSize = new System.Drawing.Size(1366, 768);
-            this.Controls.Add(this.comboDelivery);
-            this.Controls.Add(this.comboPlanet);
-            this.Controls.Add(this.comboNau);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.axWindowsMediaPlayer1);
->>>>>>> Stashed changes
             this.Controls.Add(this.botoN_MIN1);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.botoN_X1);
@@ -431,7 +379,12 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmServer_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -448,8 +401,6 @@
         private System.Windows.Forms.ProgressBar progressBar1;
         private Controls03.BOTON_MIN botoN_MIN1;
         private System.Windows.Forms.Timer timer1;
-<<<<<<< Updated upstream
-=======
         private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
@@ -465,13 +416,6 @@
         private System.Windows.Forms.Button btn_desconnect;
         private System.Windows.Forms.Button btn_sendMessage;
         private System.Windows.Forms.Button btn_comprovarXarxa;
-        private System.Windows.Forms.ComboBox comboNau;
-        private System.Windows.Forms.ComboBox comboPlanet;
-        private System.Windows.Forms.ComboBox comboDelivery;
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
     }
 }
 

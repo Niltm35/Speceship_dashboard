@@ -16,26 +16,6 @@ C:\Users\Nil\Documents\GitHub\Speceship_dashboard\PACS Inner Ring Validation\obj
 C:\Users\Nil\Documents\GitHub\Speceship_dashboard\PACS Inner Ring Validation\obj\Debug\PACS Inner Ring Validation.exe
 C:\Users\Nil\Documents\GitHub\Speceship_dashboard\PACS Inner Ring Validation\obj\Debug\PACS Inner Ring Validation.pdb
 C:\Users\Nil\Documents\GitHub\Speceship_dashboard\PACS Inner Ring Validation\obj\Debug\PACS Inner Ring Validation.csprojAssemblyReference.cache
-<<<<<<< Updated upstream
-=======
 C:\Users\Nil\Documents\GitHub\Speceship_dashboard\PACS Inner Ring Validation\obj\Debug\Interop.WMPLib.dll
 C:\Users\Nil\Documents\GitHub\Speceship_dashboard\PACS Inner Ring Validation\obj\Debug\AxInterop.WMPLib.dll
 C:\Users\Nil\Documents\GitHub\Speceship_dashboard\PACS Inner Ring Validation\obj\Debug\PACS Inner Ring Validation.csproj.ResolveComReference.cache
-C:\Users\Pc\Desktop\CLASE\PROYECTOS\SPACESHIP\Speceship_dashboard\dll\PACS Inner Ring Validation.exe.config
-C:\Users\Pc\Desktop\CLASE\PROYECTOS\SPACESHIP\Speceship_dashboard\dll\PACS Inner Ring Validation.exe
-C:\Users\Pc\Desktop\CLASE\PROYECTOS\SPACESHIP\Speceship_dashboard\dll\PACS Inner Ring Validation.pdb
-C:\Users\Pc\Desktop\CLASE\PROYECTOS\SPACESHIP\Speceship_dashboard\PACS Inner Ring Validation\obj\Debug\PACS Inner Ring Validation.csprojAssemblyReference.cache
-C:\Users\Pc\Desktop\CLASE\PROYECTOS\SPACESHIP\Speceship_dashboard\PACS Inner Ring Validation\obj\Debug\Interop.WMPLib.dll
-C:\Users\Pc\Desktop\CLASE\PROYECTOS\SPACESHIP\Speceship_dashboard\PACS Inner Ring Validation\obj\Debug\AxInterop.WMPLib.dll
-C:\Users\Pc\Desktop\CLASE\PROYECTOS\SPACESHIP\Speceship_dashboard\PACS Inner Ring Validation\obj\Debug\PACS Inner Ring Validation.csproj.ResolveComReference.cache
-C:\Users\Pc\Desktop\CLASE\PROYECTOS\SPACESHIP\Speceship_dashboard\PACS Inner Ring Validation\obj\Debug\PACS_Inner_Ring_Validation.Form1.resources
-C:\Users\Pc\Desktop\CLASE\PROYECTOS\SPACESHIP\Speceship_dashboard\PACS Inner Ring Validation\obj\Debug\PACS_Inner_Ring_Validation.Properties.Resources.resources
-C:\Users\Pc\Desktop\CLASE\PROYECTOS\SPACESHIP\Speceship_dashboard\PACS Inner Ring Validation\obj\Debug\PACS Inner Ring Validation.csproj.GenerateResource.cache
-C:\Users\Pc\Desktop\CLASE\PROYECTOS\SPACESHIP\Speceship_dashboard\PACS Inner Ring Validation\obj\Debug\PACS Inner Ring Validation.csproj.CoreCompileInputs.cache
-C:\Users\Pc\Desktop\CLASE\PROYECTOS\SPACESHIP\Speceship_dashboard\PACS Inner Ring Validation\obj\Debug\PACS Inner Ring Validation.csproj.CopyComplete
-C:\Users\Pc\Desktop\CLASE\PROYECTOS\SPACESHIP\Speceship_dashboard\PACS Inner Ring Validation\obj\Debug\PACS Inner Ring Validation.exe
-C:\Users\Pc\Desktop\CLASE\PROYECTOS\SPACESHIP\Speceship_dashboard\PACS Inner Ring Validation\obj\Debug\PACS Inner Ring Validation.pdb
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
