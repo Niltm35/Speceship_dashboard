@@ -40,6 +40,30 @@
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.botoN_MIN1 = new Controls03.BOTON_MIN();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+<<<<<<< Updated upstream
+=======
+            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
+            this.label1 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lbx_Missatges = new System.Windows.Forms.ListBox();
+            this.desc = new System.Windows.Forms.Button();
+            this.conectar = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txb_message = new System.Windows.Forms.TextBox();
+            this.pnl_status = new System.Windows.Forms.Panel();
+            this.lbx_console = new System.Windows.Forms.ListBox();
+            this.lb_statusInfo = new System.Windows.Forms.Label();
+            this.btn_desconnect = new System.Windows.Forms.Button();
+            this.btn_sendMessage = new System.Windows.Forms.Button();
+            this.btn_comprovarXarxa = new System.Windows.Forms.Button();
+            this.comboNau = new System.Windows.Forms.ComboBox();
+            this.comboPlanet = new System.Windows.Forms.ComboBox();
+            this.comboDelivery = new System.Windows.Forms.ComboBox();
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+>>>>>>> Stashed changes
             this.SuspendLayout();
             // 
             // ValidationGenerate_button
@@ -47,7 +71,11 @@
             this.ValidationGenerate_button.BackColor = System.Drawing.Color.Transparent;
             this.ValidationGenerate_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
             this.ValidationGenerate_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+<<<<<<< Updated upstream
             this.ValidationGenerate_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+=======
+            this.ValidationGenerate_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+>>>>>>> Stashed changes
             this.ValidationGenerate_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(203)))), ((int)(((byte)(207)))));
             this.ValidationGenerate_button.Location = new System.Drawing.Point(767, 167);
             this.ValidationGenerate_button.Name = "ValidationGenerate_button";
@@ -79,7 +107,11 @@
             this.KeyGenerator_button.BackColor = System.Drawing.Color.Transparent;
             this.KeyGenerator_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
             this.KeyGenerator_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+<<<<<<< Updated upstream
             this.KeyGenerator_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+=======
+            this.KeyGenerator_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+>>>>>>> Stashed changes
             this.KeyGenerator_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(203)))), ((int)(((byte)(207)))));
             this.KeyGenerator_button.Location = new System.Drawing.Point(767, 212);
             this.KeyGenerator_button.Name = "KeyGenerator_button";
@@ -94,7 +126,11 @@
             this.Desencriptar_button.BackColor = System.Drawing.Color.Transparent;
             this.Desencriptar_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
             this.Desencriptar_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+<<<<<<< Updated upstream
             this.Desencriptar_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+=======
+            this.Desencriptar_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+>>>>>>> Stashed changes
             this.Desencriptar_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(203)))), ((int)(((byte)(207)))));
             this.Desencriptar_button.Location = new System.Drawing.Point(767, 255);
             this.Desencriptar_button.Name = "Desencriptar_button";
@@ -166,13 +202,206 @@
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+<<<<<<< Updated upstream
+=======
+            // axWindowsMediaPlayer1
+            // 
+            this.axWindowsMediaPlayer1.Enabled = true;
+            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(46, 101);
+            this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
+            this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
+            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(149, 128);
+            this.axWindowsMediaPlayer1.TabIndex = 13;
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(203)))), ((int)(((byte)(207)))));
+            this.label1.Location = new System.Drawing.Point(28, 264);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(190, 62);
+            this.label1.TabIndex = 14;
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(440, 153);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 15;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.lbx_Missatges);
+            this.groupBox1.Controls.Add(this.desc);
+            this.groupBox1.Controls.Add(this.conectar);
+            this.groupBox1.Location = new System.Drawing.Point(553, 107);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(228, 181);
+            this.groupBox1.TabIndex = 16;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "groupBox1";
+            // 
+            // lbx_Missatges
+            // 
+            this.lbx_Missatges.FormattingEnabled = true;
+            this.lbx_Missatges.Location = new System.Drawing.Point(6, 19);
+            this.lbx_Missatges.Name = "lbx_Missatges";
+            this.lbx_Missatges.Size = new System.Drawing.Size(216, 95);
+            this.lbx_Missatges.TabIndex = 2;
+            // 
+            // desc
+            // 
+            this.desc.Location = new System.Drawing.Point(87, 141);
+            this.desc.Name = "desc";
+            this.desc.Size = new System.Drawing.Size(75, 23);
+            this.desc.TabIndex = 1;
+            this.desc.Text = "desc";
+            this.desc.UseVisualStyleBackColor = true;
+            this.desc.Click += new System.EventHandler(this.btn_connect_serv_Click);
+            // 
+            // conectar
+            // 
+            this.conectar.Location = new System.Drawing.Point(6, 141);
+            this.conectar.Name = "conectar";
+            this.conectar.Size = new System.Drawing.Size(75, 23);
+            this.conectar.TabIndex = 0;
+            this.conectar.Text = "co";
+            this.conectar.UseVisualStyleBackColor = true;
+            this.conectar.Click += new System.EventHandler(this.btn_connect_serv_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.txb_message);
+            this.groupBox2.Controls.Add(this.pnl_status);
+            this.groupBox2.Controls.Add(this.lbx_console);
+            this.groupBox2.Controls.Add(this.lb_statusInfo);
+            this.groupBox2.Controls.Add(this.btn_desconnect);
+            this.groupBox2.Controls.Add(this.btn_sendMessage);
+            this.groupBox2.Controls.Add(this.btn_comprovarXarxa);
+            this.groupBox2.Location = new System.Drawing.Point(797, 107);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(279, 181);
+            this.groupBox2.TabIndex = 17;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "groupBox2";
+            // 
+            // txb_message
+            // 
+            this.txb_message.Location = new System.Drawing.Point(161, 115);
+            this.txb_message.Name = "txb_message";
+            this.txb_message.Size = new System.Drawing.Size(100, 20);
+            this.txb_message.TabIndex = 6;
+            // 
+            // pnl_status
+            // 
+            this.pnl_status.Location = new System.Drawing.Point(214, 19);
+            this.pnl_status.Name = "pnl_status";
+            this.pnl_status.Size = new System.Drawing.Size(47, 43);
+            this.pnl_status.TabIndex = 5;
+            // 
+            // lbx_console
+            // 
+            this.lbx_console.FormattingEnabled = true;
+            this.lbx_console.Location = new System.Drawing.Point(6, 19);
+            this.lbx_console.Name = "lbx_console";
+            this.lbx_console.Size = new System.Drawing.Size(120, 69);
+            this.lbx_console.TabIndex = 4;
+            // 
+            // lb_statusInfo
+            // 
+            this.lb_statusInfo.AutoSize = true;
+            this.lb_statusInfo.Location = new System.Drawing.Point(164, 99);
+            this.lb_statusInfo.Name = "lb_statusInfo";
+            this.lb_statusInfo.Size = new System.Drawing.Size(35, 13);
+            this.lb_statusInfo.TabIndex = 3;
+            this.lb_statusInfo.Text = "label2";
+            // 
+            // btn_desconnect
+            // 
+            this.btn_desconnect.Location = new System.Drawing.Point(186, 141);
+            this.btn_desconnect.Name = "btn_desconnect";
+            this.btn_desconnect.Size = new System.Drawing.Size(75, 23);
+            this.btn_desconnect.TabIndex = 2;
+            this.btn_desconnect.Text = "desc";
+            this.btn_desconnect.UseVisualStyleBackColor = true;
+            this.btn_desconnect.Click += new System.EventHandler(this.btn_desconnect_Click);
+            // 
+            // btn_sendMessage
+            // 
+            this.btn_sendMessage.Location = new System.Drawing.Point(32, 141);
+            this.btn_sendMessage.Name = "btn_sendMessage";
+            this.btn_sendMessage.Size = new System.Drawing.Size(75, 23);
+            this.btn_sendMessage.TabIndex = 1;
+            this.btn_sendMessage.Text = "send";
+            this.btn_sendMessage.UseVisualStyleBackColor = true;
+            this.btn_sendMessage.Click += new System.EventHandler(this.btn_sendMessage_Click);
+            // 
+            // btn_comprovarXarxa
+            // 
+            this.btn_comprovarXarxa.Location = new System.Drawing.Point(32, 100);
+            this.btn_comprovarXarxa.Name = "btn_comprovarXarxa";
+            this.btn_comprovarXarxa.Size = new System.Drawing.Size(75, 23);
+            this.btn_comprovarXarxa.TabIndex = 0;
+            this.btn_comprovarXarxa.Text = "compxarx";
+            this.btn_comprovarXarxa.UseVisualStyleBackColor = true;
+            this.btn_comprovarXarxa.Click += new System.EventHandler(this.btn_comprovarXarxa_Click);
+            // 
+            // comboNau
+            // 
+            this.comboNau.DisplayMember = "codeSpaceShip";
+            this.comboNau.FormattingEnabled = true;
+            this.comboNau.Location = new System.Drawing.Point(553, 331);
+            this.comboNau.Name = "comboNau";
+            this.comboNau.Size = new System.Drawing.Size(121, 21);
+            this.comboNau.TabIndex = 18;
+            this.comboNau.ValueMember = "idSpaceShip";
+            this.comboNau.SelectedIndexChanged += new System.EventHandler(this.comboNau_SelectedIndexChanged);
+            // 
+            // comboPlanet
+            // 
+            this.comboPlanet.DisplayMember = "DescPlanet";
+            this.comboPlanet.FormattingEnabled = true;
+            this.comboPlanet.Location = new System.Drawing.Point(736, 331);
+            this.comboPlanet.Name = "comboPlanet";
+            this.comboPlanet.Size = new System.Drawing.Size(121, 21);
+            this.comboPlanet.TabIndex = 19;
+            this.comboPlanet.ValueMember = "idPlanet";
+            this.comboPlanet.SelectedIndexChanged += new System.EventHandler(this.comboPlanet_SelectedIndexChanged);
+            // 
+            // comboDelivery
+            // 
+            this.comboDelivery.DisplayMember = "CodeDelivery";
+            this.comboDelivery.FormattingEnabled = true;
+            this.comboDelivery.Location = new System.Drawing.Point(921, 331);
+            this.comboDelivery.Name = "comboDelivery";
+            this.comboDelivery.Size = new System.Drawing.Size(121, 21);
+            this.comboDelivery.TabIndex = 20;
+            this.comboDelivery.ValueMember = "idDeliveryData";
+            // 
+>>>>>>> Stashed changes
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+<<<<<<< Updated upstream
             this.ClientSize = new System.Drawing.Size(1386, 788);
+=======
+            this.ClientSize = new System.Drawing.Size(1366, 768);
+            this.Controls.Add(this.comboDelivery);
+            this.Controls.Add(this.comboPlanet);
+            this.Controls.Add(this.comboNau);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.axWindowsMediaPlayer1);
+>>>>>>> Stashed changes
             this.Controls.Add(this.botoN_MIN1);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.botoN_X1);
@@ -204,6 +433,27 @@
         private System.Windows.Forms.ProgressBar progressBar1;
         private Controls03.BOTON_MIN botoN_MIN1;
         private System.Windows.Forms.Timer timer1;
+<<<<<<< Updated upstream
+=======
+        private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ListBox lbx_Missatges;
+        private System.Windows.Forms.Button desc;
+        private System.Windows.Forms.Button conectar;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.TextBox txb_message;
+        private System.Windows.Forms.Panel pnl_status;
+        private System.Windows.Forms.ListBox lbx_console;
+        private System.Windows.Forms.Label lb_statusInfo;
+        private System.Windows.Forms.Button btn_desconnect;
+        private System.Windows.Forms.Button btn_sendMessage;
+        private System.Windows.Forms.Button btn_comprovarXarxa;
+        private System.Windows.Forms.ComboBox comboNau;
+        private System.Windows.Forms.ComboBox comboPlanet;
+        private System.Windows.Forms.ComboBox comboDelivery;
+>>>>>>> Stashed changes
     }
 }
 
