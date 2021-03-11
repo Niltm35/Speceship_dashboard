@@ -443,5 +443,10 @@ namespace PACS_Inner_Ring_Validation
                 ns.Close();
             }
         }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

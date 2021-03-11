@@ -55,6 +55,10 @@
             this.btn_desconnect = new System.Windows.Forms.Button();
             this.btn_sendMessage = new System.Windows.Forms.Button();
             this.btn_comprovarXarxa = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -68,7 +72,7 @@
             this.ValidationGenerate_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.ValidationGenerate_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.ValidationGenerate_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ValidationGenerate_button.Font = new System.Drawing.Font("Montserrat", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ValidationGenerate_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ValidationGenerate_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(203)))), ((int)(((byte)(207)))));
             this.ValidationGenerate_button.Location = new System.Drawing.Point(43, 438);
             this.ValidationGenerate_button.Name = "ValidationGenerate_button";
@@ -104,7 +108,7 @@
             this.KeyGenerator_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.KeyGenerator_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.KeyGenerator_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.KeyGenerator_button.Font = new System.Drawing.Font("Montserrat", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KeyGenerator_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KeyGenerator_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(203)))), ((int)(((byte)(207)))));
             this.KeyGenerator_button.Location = new System.Drawing.Point(1178, 222);
             this.KeyGenerator_button.Name = "KeyGenerator_button";
@@ -122,7 +126,7 @@
             this.Desencriptar_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.Desencriptar_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.Desencriptar_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Desencriptar_button.Font = new System.Drawing.Font("Montserrat", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Desencriptar_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Desencriptar_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(203)))), ((int)(((byte)(207)))));
             this.Desencriptar_button.Location = new System.Drawing.Point(1178, 365);
             this.Desencriptar_button.Name = "Desencriptar_button";
@@ -353,6 +357,38 @@
             this.btn_comprovarXarxa.UseVisualStyleBackColor = true;
             this.btn_comprovarXarxa.Click += new System.EventHandler(this.btn_comprovarXarxa_Click);
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(-15, -15);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 18;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(553, 333);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(121, 21);
+            this.comboBox2.TabIndex = 18;
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(735, 333);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(121, 21);
+            this.comboBox3.TabIndex = 19;
+            // 
+            // comboBox4
+            // 
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Location = new System.Drawing.Point(937, 333);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(121, 21);
+            this.comboBox4.TabIndex = 20;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -360,6 +396,10 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1366, 768);
+            this.Controls.Add(this.comboBox4);
+            this.Controls.Add(this.comboBox3);
+            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button1);
@@ -416,6 +456,10 @@
         private System.Windows.Forms.Button btn_desconnect;
         private System.Windows.Forms.Button btn_sendMessage;
         private System.Windows.Forms.Button btn_comprovarXarxa;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox comboBox4;
     }
 }
 
