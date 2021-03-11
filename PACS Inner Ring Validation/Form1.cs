@@ -51,6 +51,7 @@ namespace PACS_Inner_Ring_Validation
         private void Form1_Load(object sender, EventArgs e)
         {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             string SELECT_innerencryption = "SELECT * FROM InnerEncryption";
             string TAULA_innerencryption = "InnerEncryption";
             //dataGridView1.DataSource = bbdd.PortarPerTaula(taula, query);
@@ -67,6 +68,8 @@ namespace PACS_Inner_Ring_Validation
                 }
             }
 =======
+=======
+>>>>>>> Stashed changes
             label1.Text = "SpaceShip Detected!!";
             axWindowsMediaPlayer1.URL = @"Images\tie-fighter6-lento.gif";
             axWindowsMediaPlayer1.uiMode = "none";
@@ -76,6 +79,25 @@ namespace PACS_Inner_Ring_Validation
             string taula_Planet = "Planets";
             DataTable dt_Planet = bbdd.PortarPerTaula(taula_Planet, select_Planet);
             comboPlanet.DataSource = dt_Planet;
+<<<<<<< Updated upstream
+
+            string select_Nau = "SELECT * FROM SpaceShips ORDER BY idSpaceShip ASC";
+            string taula_Nau = "SpaceShips";
+            DataTable dt_Nau = bbdd.PortarPerTaula(taula_Nau, select_Nau);
+            comboNau.DataSource = dt_Nau;
+
+            string select_Delivery = "SELECT * FROM DeliveryData ORDER BY idDeliveryData ASC";
+            string taula_Delivery = "DeliveryData";
+            DataTable dt_Delivery = bbdd.PortarPerTaula(taula_Delivery, select_Delivery);
+            comboDelivery.DataSource = dt_Delivery;
+
+            //ValidationCode.TextAlign = HorizontalAlignment.Center;
+            //Codificar.Enabled = false;
+            btn_sendMessage.Enabled = false;
+
+
+>>>>>>> Stashed changes
+=======
 
             string select_Nau = "SELECT * FROM SpaceShips ORDER BY idSpaceShip ASC";
             string taula_Nau = "SpaceShips";
@@ -510,8 +532,11 @@ namespace PACS_Inner_Ring_Validation
             }
         }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes
 =======
+=======
+>>>>>>> Stashed changes
 
         private void botoN_X1_Click(object sender, EventArgs e)
         {
@@ -532,6 +557,9 @@ namespace PACS_Inner_Ring_Validation
 
         //-----------------FIN SERVIDOR--------------------------------
 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     }
 }

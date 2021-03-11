@@ -72,7 +72,11 @@
             this.ValidationGenerate_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
             this.ValidationGenerate_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             this.ValidationGenerate_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+=======
+            this.ValidationGenerate_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+>>>>>>> Stashed changes
 =======
             this.ValidationGenerate_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 >>>>>>> Stashed changes
@@ -108,7 +112,11 @@
             this.KeyGenerator_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
             this.KeyGenerator_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             this.KeyGenerator_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+=======
+            this.KeyGenerator_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+>>>>>>> Stashed changes
 =======
             this.KeyGenerator_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 >>>>>>> Stashed changes
@@ -127,7 +135,11 @@
             this.Desencriptar_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
             this.Desencriptar_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             this.Desencriptar_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+=======
+            this.Desencriptar_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+>>>>>>> Stashed changes
 =======
             this.Desencriptar_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 >>>>>>> Stashed changes
@@ -382,6 +394,9 @@
             this.comboDelivery.TabIndex = 20;
             this.comboDelivery.ValueMember = "idDeliveryData";
             // 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
             // Form1
             // 
@@ -453,6 +468,9 @@
         private System.Windows.Forms.ComboBox comboNau;
         private System.Windows.Forms.ComboBox comboPlanet;
         private System.Windows.Forms.ComboBox comboDelivery;
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     }
 }

@@ -35,4 +35,7 @@ C:\Users\Pc\Desktop\CLASE\PROYECTOS\SPACESHIP\Speceship_dashboard\PACS Inner Rin
 C:\Users\Pc\Desktop\CLASE\PROYECTOS\SPACESHIP\Speceship_dashboard\PACS Inner Ring Validation\obj\Debug\PACS Inner Ring Validation.csproj.CopyComplete
 C:\Users\Pc\Desktop\CLASE\PROYECTOS\SPACESHIP\Speceship_dashboard\PACS Inner Ring Validation\obj\Debug\PACS Inner Ring Validation.exe
 C:\Users\Pc\Desktop\CLASE\PROYECTOS\SPACESHIP\Speceship_dashboard\PACS Inner Ring Validation\obj\Debug\PACS Inner Ring Validation.pdb
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
