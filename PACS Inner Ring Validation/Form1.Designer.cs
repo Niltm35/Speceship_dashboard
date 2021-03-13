@@ -91,7 +91,6 @@
             this.comboPlanets.nomTaula = "Planets";
             this.comboPlanets.Size = new System.Drawing.Size(197, 32);
             this.comboPlanets.TabIndex = 5;
-            this.comboPlanets.SelectionChangeCommitted += new System.EventHandler(this.comboPlanets_SelectionChangeCommitted);
             // 
             // KeyGenerator_button
             // 
@@ -201,7 +200,6 @@
             this.btn_sendMessage.TabIndex = 14;
             this.btn_sendMessage.Text = "Send Message";
             this.btn_sendMessage.UseVisualStyleBackColor = true;
-            this.btn_sendMessage.Click += new System.EventHandler(this.btn_sendMessage_Click);
             // 
             // btn_comprovarXarxa
             // 
@@ -211,7 +209,6 @@
             this.btn_comprovarXarxa.TabIndex = 15;
             this.btn_comprovarXarxa.Text = "Comprovar Xarxa";
             this.btn_comprovarXarxa.UseVisualStyleBackColor = true;
-            this.btn_comprovarXarxa.Click += new System.EventHandler(this.btn_comprovarXarxa_Click);
             // 
             // btn_desconnect
             // 
@@ -221,7 +218,6 @@
             this.btn_desconnect.TabIndex = 16;
             this.btn_desconnect.Text = "Desconnect";
             this.btn_desconnect.UseVisualStyleBackColor = true;
-            this.btn_desconnect.Click += new System.EventHandler(this.btn_desconnect_Click);
             // 
             // pnl_status
             // 
@@ -300,7 +296,6 @@
             this.desc.TabIndex = 3;
             this.desc.Text = "desconectar";
             this.desc.UseVisualStyleBackColor = true;
-            this.desc.Click += new System.EventHandler(this.btn_desconnect_serv_Click);
             // 
             // conectar
             // 
@@ -310,7 +305,6 @@
             this.conectar.TabIndex = 2;
             this.conectar.Text = "conectar";
             this.conectar.UseVisualStyleBackColor = true;
-            this.conectar.Click += new System.EventHandler(this.btn_connect_serv_Click);
             // 
             // lbx_Missatges
             // 

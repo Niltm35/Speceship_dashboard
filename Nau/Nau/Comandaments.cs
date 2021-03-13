@@ -15,6 +15,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using AccesoDatos;
 using Controls03;
+using System.Resources;
 
 namespace Nau
 {
@@ -44,13 +45,15 @@ namespace Nau
             DataTable dt_Delivery = bbdd.PortarPerTaula(taula_Delivery, select_Delivery);
             comboDelivery.DataSource = dt_Delivery;
 
-            ValidationCode.TextAlign = HorizontalAlignment.Center;
+            img_server.BackgroundImage = Image.FromFile(Application.StartupPath + @"\imatges\serv_off.png");
+            Serv_On.Enabled = true;
+            Serv_Off.Enabled = false;
+
             Codificar.Enabled = false;
             btn_sendMessage.Enabled = false;
-            //IP_Planet = TaulaPlanet().Tables[0].Rows[0][10].ToString();
-            //Port_Planet = TaulaPlanet().Tables[0].Rows[0][11].ToString();
-            //Port_Nau = TaulaNau().Tables[0].Rows[0][4].ToString();
-            //IP_Nau = TaulaNau().Tables[0].Rows[0][3].ToString();
+            btn_peticion.Enabled = false;
+            Send_PublicKey.Enabled = false;
+            btn_desconnect.Enabled = true;
         }
 
         byte[] encryptedData;
@@ -69,6 +72,7 @@ namespace Nau
             Codificar.Enabled = true;
         }
 
+        string VK_codificada;
         private void Codificar_Click(object sender, EventArgs e)
         {
             UnicodeEncoding ByteConverter = new UnicodeEncoding();
@@ -79,11 +83,10 @@ namespace Nau
             rsaEnc.FromXmlString(xmlKey);
             encryptedData = rsaEnc.Encrypt(dataToEncrypt, false);
 
-            string VK_codificada = ByteConverter.GetString(encryptedData);
+            VK_codificada = ByteConverter.GetString(encryptedData);
 
             ValidationCode_Codificado.Text = VK_codificada;
-
-            lbl_VK.Text = "VK" + VK_codificada;
+            Send_PublicKey.Enabled = true;
         }
 
         private void btn_peticion_Click(object sender, EventArgs e)
@@ -91,23 +94,12 @@ namespace Nau
             string type = "ER";
             string code_Nau = TaulaNau().Tables[0].Rows[0][2].ToString();
             string code_Delivery = TaulaDelivery().Tables[0].Rows[0][1].ToString();
-            lbl_missatge.Text = type + code_Nau + code_Delivery;
+            string ER_ms = type + code_Nau + code_Delivery;
+            lbl_missatge.Text = ER_ms;
+            SendMessage(ER_ms);
         }
 
-        public void message_planet(string ms)
-        {
-            string T = ms.Substring(0, 2);
-            string F = ms.Substring(15, 2);
-            if (T == "VR")
-            {
-                if (T == "ER")
-                {
-                    MessageBox.Show("La conexion ha sido correcta");
-
-                }
-
-            }
-        }
+        
 
         //-----------------CLIENT--------------------------------------
         string IP_Planet;
@@ -150,7 +142,6 @@ namespace Nau
                 pnl_status.BackColor = Color.Yellow;
 
                 Ping myPing = new Ping();
-
                 PingReply reply;
 
                 string Estado = "";
@@ -166,7 +157,7 @@ namespace Nau
                     {
                         Estado = "NOK";
                     }
-                    lbx_console.Items.Add("Ping " + i + " - " + Estado);
+                    lbx_console.Items.Add("   Ping " + i + "  -  " + Estado);
                     Thread.Sleep(100);
                 }
                 if (Estado.Equals("NOK"))
@@ -196,6 +187,31 @@ namespace Nau
             Fil_ping.Start();
             btn_sendMessage.Enabled = true;
             btn_desconnect.Enabled = true;
+            btn_peticion.Enabled = true;
+        }
+        //----------------------COMUNICAION CON EL PLANETA-------------------------------------------
+        string Smessage;
+        
+        string info_warring;
+
+        private void SendMessage(string Smessage)
+        {
+            try
+            {
+                TcpClient client = new TcpClient(IP_Planet, Convert.ToInt32(Port_Planet));
+                Byte[] dades = Encoding.ASCII.GetBytes(Smessage);
+                NetworkStream ns = client.GetStream();
+                ns.Write(dades, 0, dades.Length);
+                lbx_Missatges.Items.Add("YOU: " + Smessage);
+            }
+            catch
+            {
+                //MessageBox.Show("Servidor inaccessible");
+                info_warring = "Servidor inaccessible";
+                Warning _warning = new Warning();
+                _warning.INFO = info_warring;
+                _warning.Show();
+            }
         }
 
         private void btn_sendMessage_Click(object sender, EventArgs e)
@@ -205,20 +221,88 @@ namespace Nau
                 TcpClient client = new TcpClient(IP_Planet, Convert.ToInt32(Port_Planet));
                 if (txb_message.Text == "")
                 {
-                    MessageBox.Show("El missatge no por estar buit");
+                    //MessageBox.Show("El missatge no por estar buit");
+                    info_warring = "El missatge no por estar buit";
+                    Warning _warning = new Warning();
+                    _warning.INFO = info_warring;
+                    _warning.Show();
                 }
                 else
                 {
                     Byte[] dades = Encoding.ASCII.GetBytes(txb_message.Text);
                     NetworkStream ns = client.GetStream();
                     ns.Write(dades, 0, dades.Length);
+                    lbx_Missatges.Items.Add("YOU: " + txb_message.Text);
                 }
             }
             catch
             {
-                MessageBox.Show("Servidor inaccessible");
+                //MessageBox.Show("Servidor inaccessible");
+                info_warring = "Servidor inaccessible";
+                Warning _warning = new Warning();
+                _warning.INFO = info_warring;
+                _warning.Show();
+
             }
         }
+
+        public void message_planet(string ms)
+        {
+            string request = ms.Substring(0, 2);
+            string answer = ms.Substring(14, 2);
+
+            if (request == "VR")
+            {
+                if (answer == "VP")
+                {
+                    string Message = "Validation ln Progress";
+                    Info _info = new Info();
+                    _info.INFO = Message;
+                    _info.ICON = "info_icon.png";
+                    _info.Show();
+                }
+                else if (answer == "AD")
+                {
+                    string Message = "Access Denied";
+                    Info _info = new Info();
+                    _info.INFO = Message;
+                    _info.Show();
+                }
+                else if (answer == "AG")
+                {
+                    MessageBox.Show("Access Granted");
+                    string Message = "Access Denied";
+                    Info _info = new Info();
+                    _info.INFO = Message;
+                    _info.Show();
+                }
+                else
+                {
+                    string Message = "Error message: " + ms;
+                    Warning _warning = new Warning();
+                    _warning.INFO = Message;
+                    _warning.Show();
+                }
+            }
+            else
+            {
+                string Message = "Error message: " + ms;
+                Warning _warning = new Warning();
+                _warning.INFO = Message;
+                _warning.Show();
+            }
+        }
+
+        private void Send_PublicKey_Click(object sender, EventArgs e)
+        {
+            Smessage = "VK" + VK_codificada;
+            lbl_VK.Text = Smessage;
+            SendMessage(Smessage);
+        }
+
+
+
+        //----------------------FIN COMUNICAION CON EL PLANETA-------------------------------------------
 
         private void btn_desconnect_Click(object sender, EventArgs e)
         {
@@ -245,7 +329,9 @@ namespace Nau
                 comprobacio_conexio = new Thread(conexio);
                 comprobacio_conexio.Start();
                 IsConnected = true;
-                label1.Text = "Conectado";
+                img_server.BackgroundImage = Image.FromFile(Application.StartupPath + @"\imatges\serv_on2.png");
+                Serv_On.Enabled = false;
+                Serv_Off.Enabled = true;
             }
         }
         Boolean IsConnected;
@@ -274,7 +360,7 @@ namespace Nau
         {
             try
             {
-                Listener = new TcpListener(IPAddress.Any, Convert.ToInt32(Port_Nau));
+                Listener = new TcpListener(IPAddress.Any, Convert.ToInt32(Port_Planet));
                 Listener.Start();
                 //string gg = LocalIPAddress();
                 while (IsConnected)
@@ -288,7 +374,7 @@ namespace Nau
                         string data = "";
                         ns.Read(buffer, 0, buffer.Length);
                         data = Encoding.ASCII.GetString(buffer, 0, buffer.Length);
-                        lbx_Missatges.Items.Add("IP la Nau ha enviat: " + data);
+                        lbx_Missatges.Items.Add("PLANET: " + data);
                         message_planet(data);
                     }
                     
@@ -296,7 +382,10 @@ namespace Nau
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                string Message = ex.Message;
+                Warning _warning = new Warning();
+                _warning.INFO = Message;
+                _warning.Show();
             }
         }
 
@@ -304,7 +393,9 @@ namespace Nau
         {
             lbx_Missatges.Items.Clear();
             cerrar();
-            label1.Text = "Desconectado";
+            img_server.BackgroundImage = Image.FromFile(Application.StartupPath + @"\imatges\serv_off.png");
+            Serv_On.Enabled = true;
+            Serv_Off.Enabled = false;
         }
 
         private void frmServer_FormClosing(object sender, FormClosingEventArgs e)

@@ -60,6 +60,18 @@
     <Compile Include="Comandaments.Designer.cs">
       <DependentUpon>Comandaments.cs</DependentUpon>
     </Compile>
+    <Compile Include="Info.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Info.Designer.cs">
+      <DependentUpon>Info.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Warning.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Warning.Designer.cs">
+      <DependentUpon>Warning.cs</DependentUpon>
+    </Compile>
     <Compile Include="Nau.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +87,12 @@
     </Compile>
     <EmbeddedResource Include="Comandaments.resx">
       <DependentUpon>Comandaments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Info.resx">
+      <DependentUpon>Info.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Warning.resx">
+      <DependentUpon>Warning.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Nau.resx">
       <DependentUpon>Nau.cs</DependentUpon>
@@ -115,6 +133,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\planet_craters_space_light_61032_1920x1080.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\serv_on2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\serv_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\serv_off2.png" />
+    <Content Include="Resources\serv_off21.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
