@@ -47,7 +47,6 @@ namespace Nau
             // 
             // img_icon
             // 
-            this.img_icon.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("img_icon.BackgroundImage")));
             this.img_icon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.img_icon.Location = new System.Drawing.Point(62, 87);
             this.img_icon.Name = "img_icon";

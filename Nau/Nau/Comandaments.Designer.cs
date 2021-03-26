@@ -43,14 +43,12 @@
             this.Serv_Off = new System.Windows.Forms.Button();
             this.Serv_On = new System.Windows.Forms.Button();
             this.btn_peticion = new System.Windows.Forms.Button();
-            this.lbl_missatge = new System.Windows.Forms.Label();
             this.comboPlanet = new System.Windows.Forms.ComboBox();
             this.comboNau = new System.Windows.Forms.ComboBox();
             this.comboDelivery = new System.Windows.Forms.ComboBox();
             this.Nau = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.lbl_VK = new System.Windows.Forms.Label();
             this.Send_PublicKey = new System.Windows.Forms.Button();
             this.ValidationCode = new System.Windows.Forms.Label();
             this.img_server = new System.Windows.Forms.PictureBox();
@@ -59,9 +57,14 @@
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.img_planet = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_back = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.img_server)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.img_planet)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_comprovarXarxa
@@ -75,7 +78,7 @@
             this.btn_comprovarXarxa.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
             this.btn_comprovarXarxa.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btn_comprovarXarxa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_comprovarXarxa.Location = new System.Drawing.Point(241, 568);
+            this.btn_comprovarXarxa.Location = new System.Drawing.Point(241, 622);
             this.btn_comprovarXarxa.Margin = new System.Windows.Forms.Padding(4);
             this.btn_comprovarXarxa.Name = "btn_comprovarXarxa";
             this.btn_comprovarXarxa.Size = new System.Drawing.Size(120, 120);
@@ -89,7 +92,7 @@
             this.pnl_status.BackColor = System.Drawing.Color.Red;
             this.pnl_status.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnl_status.Cursor = System.Windows.Forms.Cursors.Default;
-            this.pnl_status.Location = new System.Drawing.Point(255, 727);
+            this.pnl_status.Location = new System.Drawing.Point(255, 781);
             this.pnl_status.Margin = new System.Windows.Forms.Padding(4);
             this.pnl_status.Name = "pnl_status";
             this.pnl_status.Size = new System.Drawing.Size(92, 37);
@@ -103,7 +106,7 @@
             this.lbx_console.ForeColor = System.Drawing.SystemColors.Window;
             this.lbx_console.FormattingEnabled = true;
             this.lbx_console.ItemHeight = 16;
-            this.lbx_console.Location = new System.Drawing.Point(398, 563);
+            this.lbx_console.Location = new System.Drawing.Point(398, 617);
             this.lbx_console.Margin = new System.Windows.Forms.Padding(5);
             this.lbx_console.Name = "lbx_console";
             this.lbx_console.Size = new System.Drawing.Size(154, 212);
@@ -121,7 +124,7 @@
             this.CatchKey.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
             this.CatchKey.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
             this.CatchKey.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CatchKey.Location = new System.Drawing.Point(1277, 458);
+            this.CatchKey.Location = new System.Drawing.Point(1277, 535);
             this.CatchKey.Name = "CatchKey";
             this.CatchKey.Size = new System.Drawing.Size(120, 120);
             this.CatchKey.TabIndex = 2;
@@ -137,9 +140,9 @@
             this.botoN_X1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.botoN_X1.FlatAppearance.BorderSize = 0;
             this.botoN_X1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.botoN_X1.Location = new System.Drawing.Point(1615, 124);
+            this.botoN_X1.Location = new System.Drawing.Point(1559, 185);
             this.botoN_X1.Name = "botoN_X1";
-            this.botoN_X1.Size = new System.Drawing.Size(75, 29);
+            this.botoN_X1.Size = new System.Drawing.Size(85, 85);
             this.botoN_X1.TabIndex = 4;
             this.botoN_X1.Text = " ";
             this.botoN_X1.UseVisualStyleBackColor = false;
@@ -152,7 +155,7 @@
             this.ValidationCode_Codificado.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ValidationCode_Codificado.Font = new System.Drawing.Font("Zelta-Six Demo", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ValidationCode_Codificado.ForeColor = System.Drawing.Color.White;
-            this.ValidationCode_Codificado.Location = new System.Drawing.Point(1431, 608);
+            this.ValidationCode_Codificado.Location = new System.Drawing.Point(1431, 669);
             this.ValidationCode_Codificado.Multiline = true;
             this.ValidationCode_Codificado.Name = "ValidationCode_Codificado";
             this.ValidationCode_Codificado.ReadOnly = true;
@@ -172,7 +175,7 @@
             this.Codificar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
             this.Codificar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
             this.Codificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Codificar.Location = new System.Drawing.Point(1277, 627);
+            this.Codificar.Location = new System.Drawing.Point(1277, 688);
             this.Codificar.Name = "Codificar";
             this.Codificar.Size = new System.Drawing.Size(120, 120);
             this.Codificar.TabIndex = 7;
@@ -193,7 +196,7 @@
             this.btn_desconnect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_desconnect.Font = new System.Drawing.Font("Zelta-Six Demo Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_desconnect.ForeColor = System.Drawing.Color.Transparent;
-            this.btn_desconnect.Location = new System.Drawing.Point(836, 713);
+            this.btn_desconnect.Location = new System.Drawing.Point(836, 806);
             this.btn_desconnect.Name = "btn_desconnect";
             this.btn_desconnect.Size = new System.Drawing.Size(173, 50);
             this.btn_desconnect.TabIndex = 8;
@@ -204,7 +207,7 @@
             // txb_message
             // 
             this.txb_message.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.txb_message.Font = new System.Drawing.Font("Consolas", 9F);
+            this.txb_message.Font = new System.Drawing.Font("Consolas", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txb_message.Location = new System.Drawing.Point(10, 55);
             this.txb_message.Multiline = true;
             this.txb_message.Name = "txb_message";
@@ -225,7 +228,7 @@
             this.btn_sendMessage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_sendMessage.Font = new System.Drawing.Font("Zelta-Six Demo Light", 9F);
             this.btn_sendMessage.ForeColor = System.Drawing.Color.Transparent;
-            this.btn_sendMessage.Location = new System.Drawing.Point(657, 713);
+            this.btn_sendMessage.Location = new System.Drawing.Point(657, 806);
             this.btn_sendMessage.Name = "btn_sendMessage";
             this.btn_sendMessage.Size = new System.Drawing.Size(173, 50);
             this.btn_sendMessage.TabIndex = 10;
@@ -236,12 +239,12 @@
             // lbx_Missatges
             // 
             this.lbx_Missatges.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.lbx_Missatges.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbx_Missatges.Font = new System.Drawing.Font("Consolas", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbx_Missatges.FormattingEnabled = true;
-            this.lbx_Missatges.ItemHeight = 18;
+            this.lbx_Missatges.ItemHeight = 22;
             this.lbx_Missatges.Location = new System.Drawing.Point(10, 52);
             this.lbx_Missatges.Name = "lbx_Missatges";
-            this.lbx_Missatges.Size = new System.Drawing.Size(550, 148);
+            this.lbx_Missatges.Size = new System.Drawing.Size(550, 136);
             this.lbx_Missatges.TabIndex = 0;
             // 
             // Serv_Off
@@ -258,7 +261,7 @@
             this.Serv_Off.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Serv_Off.Font = new System.Drawing.Font("Zelta-Six Demo", 10.2F);
             this.Serv_Off.ForeColor = System.Drawing.Color.Transparent;
-            this.Serv_Off.Location = new System.Drawing.Point(266, 427);
+            this.Serv_Off.Location = new System.Drawing.Point(266, 486);
             this.Serv_Off.Name = "Serv_Off";
             this.Serv_Off.Size = new System.Drawing.Size(70, 54);
             this.Serv_Off.TabIndex = 2;
@@ -280,7 +283,7 @@
             this.Serv_On.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Serv_On.Font = new System.Drawing.Font("Zelta-Six Demo", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Serv_On.ForeColor = System.Drawing.Color.Transparent;
-            this.Serv_On.Location = new System.Drawing.Point(266, 346);
+            this.Serv_On.Location = new System.Drawing.Point(266, 405);
             this.Serv_On.Name = "Serv_On";
             this.Serv_On.Size = new System.Drawing.Size(70, 54);
             this.Serv_On.TabIndex = 1;
@@ -302,7 +305,7 @@
             this.btn_peticion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_peticion.Font = new System.Drawing.Font("Zelta-Six Demo", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_peticion.ForeColor = System.Drawing.Color.White;
-            this.btn_peticion.Location = new System.Drawing.Point(1286, 326);
+            this.btn_peticion.Location = new System.Drawing.Point(1286, 387);
             this.btn_peticion.Name = "btn_peticion";
             this.btn_peticion.Size = new System.Drawing.Size(178, 78);
             this.btn_peticion.TabIndex = 13;
@@ -310,28 +313,17 @@
             this.btn_peticion.UseVisualStyleBackColor = false;
             this.btn_peticion.Click += new System.EventHandler(this.btn_peticion_Click);
             // 
-            // lbl_missatge
-            // 
-            this.lbl_missatge.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lbl_missatge.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_missatge.Font = new System.Drawing.Font("Zelta-Six Demo", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_missatge.ForeColor = System.Drawing.Color.LightGray;
-            this.lbl_missatge.Location = new System.Drawing.Point(250, 175);
-            this.lbl_missatge.Name = "lbl_missatge";
-            this.lbl_missatge.Size = new System.Drawing.Size(212, 70);
-            this.lbl_missatge.TabIndex = 14;
-            this.lbl_missatge.Text = "er";
-            // 
             // comboPlanet
             // 
             this.comboPlanet.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.comboPlanet.BackColor = System.Drawing.Color.Black;
             this.comboPlanet.DisplayMember = "DescPlanet";
+            this.comboPlanet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboPlanet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboPlanet.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboPlanet.ForeColor = System.Drawing.Color.LightGray;
             this.comboPlanet.FormattingEnabled = true;
-            this.comboPlanet.Location = new System.Drawing.Point(905, 171);
+            this.comboPlanet.Location = new System.Drawing.Point(905, 232);
             this.comboPlanet.Name = "comboPlanet";
             this.comboPlanet.Size = new System.Drawing.Size(220, 35);
             this.comboPlanet.TabIndex = 15;
@@ -343,11 +335,12 @@
             this.comboNau.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.comboNau.BackColor = System.Drawing.Color.Black;
             this.comboNau.DisplayMember = "codeSpaceShip";
+            this.comboNau.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboNau.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboNau.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboNau.ForeColor = System.Drawing.Color.White;
             this.comboNau.FormattingEnabled = true;
-            this.comboNau.Location = new System.Drawing.Point(647, 171);
+            this.comboNau.Location = new System.Drawing.Point(647, 232);
             this.comboNau.Name = "comboNau";
             this.comboNau.Size = new System.Drawing.Size(220, 35);
             this.comboNau.TabIndex = 16;
@@ -359,11 +352,12 @@
             this.comboDelivery.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.comboDelivery.BackColor = System.Drawing.Color.Black;
             this.comboDelivery.DisplayMember = "CodeDelivery";
+            this.comboDelivery.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboDelivery.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboDelivery.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboDelivery.ForeColor = System.Drawing.Color.LightGray;
             this.comboDelivery.FormattingEnabled = true;
-            this.comboDelivery.Location = new System.Drawing.Point(1158, 171);
+            this.comboDelivery.Location = new System.Drawing.Point(1158, 232);
             this.comboDelivery.Name = "comboDelivery";
             this.comboDelivery.Size = new System.Drawing.Size(220, 35);
             this.comboDelivery.TabIndex = 17;
@@ -377,7 +371,7 @@
             this.Nau.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Nau.Font = new System.Drawing.Font("Zelta-Six Demo", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Nau.ForeColor = System.Drawing.Color.LightGray;
-            this.Nau.Location = new System.Drawing.Point(647, 124);
+            this.Nau.Location = new System.Drawing.Point(647, 185);
             this.Nau.Name = "Nau";
             this.Nau.Size = new System.Drawing.Size(220, 40);
             this.Nau.TabIndex = 18;
@@ -392,7 +386,7 @@
             this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label2.Font = new System.Drawing.Font("Zelta-Six Demo", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.LightGray;
-            this.label2.Location = new System.Drawing.Point(905, 124);
+            this.label2.Location = new System.Drawing.Point(905, 185);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(220, 40);
             this.label2.TabIndex = 19;
@@ -407,24 +401,12 @@
             this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label3.Font = new System.Drawing.Font("Zelta-Six Demo", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.LightGray;
-            this.label3.Location = new System.Drawing.Point(1158, 124);
+            this.label3.Location = new System.Drawing.Point(1158, 185);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(220, 40);
             this.label3.TabIndex = 20;
             this.label3.Text = "Delivery";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbl_VK
-            // 
-            this.lbl_VK.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_VK.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lbl_VK.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_VK.ForeColor = System.Drawing.Color.LightGray;
-            this.lbl_VK.Location = new System.Drawing.Point(308, 124);
-            this.lbl_VK.Name = "lbl_VK";
-            this.lbl_VK.Size = new System.Drawing.Size(244, 174);
-            this.lbl_VK.TabIndex = 21;
-            this.lbl_VK.Text = "vk";
             // 
             // Send_PublicKey
             // 
@@ -440,11 +422,11 @@
             this.Send_PublicKey.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Send_PublicKey.Font = new System.Drawing.Font("Zelta-Six Demo", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Send_PublicKey.ForeColor = System.Drawing.Color.White;
-            this.Send_PublicKey.Location = new System.Drawing.Point(1512, 326);
+            this.Send_PublicKey.Location = new System.Drawing.Point(1512, 387);
             this.Send_PublicKey.Name = "Send_PublicKey";
             this.Send_PublicKey.Size = new System.Drawing.Size(178, 78);
             this.Send_PublicKey.TabIndex = 22;
-            this.Send_PublicKey.Text = "Send Public Key";
+            this.Send_PublicKey.Text = "Send ValidationKey";
             this.Send_PublicKey.UseVisualStyleBackColor = false;
             this.Send_PublicKey.Click += new System.EventHandler(this.Send_PublicKey_Click);
             // 
@@ -455,7 +437,7 @@
             this.ValidationCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ValidationCode.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ValidationCode.ForeColor = System.Drawing.Color.White;
-            this.ValidationCode.Location = new System.Drawing.Point(1430, 511);
+            this.ValidationCode.Location = new System.Drawing.Point(1430, 570);
             this.ValidationCode.Name = "ValidationCode";
             this.ValidationCode.Size = new System.Drawing.Size(269, 48);
             this.ValidationCode.TabIndex = 25;
@@ -466,9 +448,9 @@
             this.img_server.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.img_server.BackColor = System.Drawing.Color.Transparent;
             this.img_server.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.img_server.Location = new System.Drawing.Point(393, 333);
+            this.img_server.Location = new System.Drawing.Point(403, 403);
             this.img_server.Name = "img_server";
-            this.img_server.Size = new System.Drawing.Size(165, 160);
+            this.img_server.Size = new System.Drawing.Size(145, 140);
             this.img_server.TabIndex = 24;
             this.img_server.TabStop = false;
             // 
@@ -491,7 +473,7 @@
             this.lbl_ValidationCode.BackColor = System.Drawing.Color.Transparent;
             this.lbl_ValidationCode.Font = new System.Drawing.Font("Consolas", 10F);
             this.lbl_ValidationCode.ForeColor = System.Drawing.Color.LightGray;
-            this.lbl_ValidationCode.Location = new System.Drawing.Point(1430, 477);
+            this.lbl_ValidationCode.Location = new System.Drawing.Point(1430, 536);
             this.lbl_ValidationCode.Name = "lbl_ValidationCode";
             this.lbl_ValidationCode.Size = new System.Drawing.Size(269, 25);
             this.lbl_ValidationCode.TabIndex = 28;
@@ -518,7 +500,7 @@
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.lbx_Missatges);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox1.Location = new System.Drawing.Point(647, 290);
+            this.groupBox1.Location = new System.Drawing.Point(647, 383);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(570, 211);
             this.groupBox1.TabIndex = 33;
@@ -530,11 +512,48 @@
             this.groupBox2.BackColor = System.Drawing.Color.Transparent;
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.txb_message);
-            this.groupBox2.Location = new System.Drawing.Point(647, 544);
+            this.groupBox2.Location = new System.Drawing.Point(647, 637);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(570, 156);
             this.groupBox2.TabIndex = 34;
             this.groupBox2.TabStop = false;
+            // 
+            // img_planet
+            // 
+            this.img_planet.BackColor = System.Drawing.Color.Transparent;
+            this.img_planet.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.img_planet.Location = new System.Drawing.Point(32, 14);
+            this.img_planet.Name = "img_planet";
+            this.img_planet.Size = new System.Drawing.Size(261, 159);
+            this.img_planet.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.img_planet.TabIndex = 35;
+            this.img_planet.TabStop = false;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Controls.Add(this.img_planet);
+            this.panel1.Location = new System.Drawing.Point(255, 141);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(325, 186);
+            this.panel1.TabIndex = 36;
+            // 
+            // btn_back
+            // 
+            this.btn_back.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_back.BackColor = System.Drawing.Color.Transparent;
+            this.btn_back.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_back.BackgroundImage")));
+            this.btn_back.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_back.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_back.Location = new System.Drawing.Point(1457, 185);
+            this.btn_back.Name = "btn_back";
+            this.btn_back.Size = new System.Drawing.Size(85, 85);
+            this.btn_back.TabIndex = 37;
+            this.btn_back.UseVisualStyleBackColor = false;
+            this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
             // 
             // Comandaments
             // 
@@ -544,6 +563,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1930, 994);
             this.ControlBox = false;
+            this.Controls.Add(this.btn_back);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lbl_ValidationCode);
@@ -556,7 +576,6 @@
             this.Controls.Add(this.Send_PublicKey);
             this.Controls.Add(this.pnl_status);
             this.Controls.Add(this.Serv_Off);
-            this.Controls.Add(this.lbl_VK);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.Serv_On);
             this.Controls.Add(this.label2);
@@ -564,12 +583,12 @@
             this.Controls.Add(this.comboDelivery);
             this.Controls.Add(this.comboNau);
             this.Controls.Add(this.comboPlanet);
-            this.Controls.Add(this.lbl_missatge);
             this.Controls.Add(this.btn_peticion);
             this.Controls.Add(this.Codificar);
             this.Controls.Add(this.ValidationCode_Codificado);
             this.Controls.Add(this.botoN_X1);
             this.Controls.Add(this.CatchKey);
+            this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -582,6 +601,8 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.img_planet)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -603,14 +624,12 @@
         private System.Windows.Forms.Button Serv_On;
         private System.Windows.Forms.Button Serv_Off;
         private System.Windows.Forms.Button btn_peticion;
-        private System.Windows.Forms.Label lbl_missatge;
         private System.Windows.Forms.ComboBox comboPlanet;
         private System.Windows.Forms.ComboBox comboNau;
         private System.Windows.Forms.ComboBox comboDelivery;
         private System.Windows.Forms.Label Nau;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label lbl_VK;
         private System.Windows.Forms.Button Send_PublicKey;
         private System.Windows.Forms.Label ValidationCode;
         private System.Windows.Forms.PictureBox img_server;
@@ -619,5 +638,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.PictureBox img_planet;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btn_back;
     }
 }
