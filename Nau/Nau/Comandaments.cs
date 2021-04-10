@@ -16,6 +16,8 @@ using System.Windows.Forms;
 using AccesoDatos;
 using Controls03;
 using System.Resources;
+using System.IO.Compression;
+using System.Collections;
 
 namespace Nau
 {
@@ -29,10 +31,8 @@ namespace Nau
 
         Thread Fil_ping;
         Class1 bbdd = new Class1();
-        
         string Name_Planet;
         
-
         private void Comandaments_Load(object sender, EventArgs e)
         {
             string select_Planet = "SELECT * FROM Planets ORDER BY DescPlanet ASC";
@@ -51,14 +51,27 @@ namespace Nau
             comboDelivery.DataSource = dt_Delivery;
 
             img_server.BackgroundImage = Image.FromFile(Application.StartupPath + @"\imatges\serv_off.png");
-            Serv_On.Enabled = true;
-            Serv_Off.Enabled = false;
 
-            Codificar.Enabled = false;
-            btn_sendMessage.Enabled = false;
+            btn_Serv_On.Enabled = true;
+            btn_Serv_Off.Enabled = false;
+            btn_Codificar.Enabled = false;
             btn_peticion.Enabled = false;
-            Send_PublicKey.Enabled = false;
-            btn_desconnect.Enabled = true;
+            btn_Send_VK.Enabled = false;
+            btn_DescodePACS.Enabled = false;
+            btn_desconnectServer.Enabled = false;
+
+            gif_info.uiMode = "none";
+            gif_info.settings.setMode("loop", true);
+
+            gif_dec.uiMode = "none";
+            gif_dec.settings.setMode("loop", true);
+            gif_dec.URL = Application.StartupPath + @"\imatges\dec1.gif";
+
+            pnl_plus_PACS.Hide();
+            btn_more_PACS.Hide();
+            btn_less_PACS.Hide();
+
+            //btn_sendMessage.Enabled = false;
         }
 
         private void botoN_X1_Click(object sender, EventArgs e)
@@ -71,12 +84,12 @@ namespace Nau
             Form frm2 = this.FindForm();
             frm2.Close();
 
-            bool exist = false;
+            //bool exist = false;
             foreach (Form frm in Application.OpenForms)
             {
                 if (frm.Name == "Nau")
                 {
-                    exist = true;
+                    //exist = true;
                     frm.Show();
                 }
             }
@@ -97,51 +110,9 @@ namespace Nau
             Name_Planet = TaulaPlanet().Tables[0].Rows[0][2].ToString();
             img_planet.BackgroundImage = Image.FromFile(Application.StartupPath + @"\imatges\planets\" + Name_Planet + ".png");
         }
+            
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        private void CatchKey_Click(object sender, EventArgs e)
-        {
-            string query = "SELECT ValidationCode FROM InnerEncryption where idPlanet = " + comboPlanet.SelectedValue;
-            string taula = "InnerEncryption";
-            ValidationCode.Text = bbdd.PortarPerTaula(taula,query).Rows[0][0].ToString();
-
-            string query_key = "SELECT XMLKey FROM PlanetKeys where idPlanet = " + comboPlanet.SelectedValue;
-            string taula_key = "PlanetKeys";
-            xmlKey = bbdd.PortarPerTaula(taula_key, query_key).Rows[0][0].ToString();
-
-            Codificar.Enabled = true;
-        }
-
-        string VK_codificada;
-        string xmlKey;
-        byte[] encryptedData;
-
-        private void Codificar_Click(object sender, EventArgs e)
-        {
-            UnicodeEncoding ByteConverter = new UnicodeEncoding();
-            byte[] dataToEncrypt = ByteConverter.GetBytes(ValidationCode.Text);
-
-            RSACryptoServiceProvider rsaEnc = new RSACryptoServiceProvider();
-
-            rsaEnc.FromXmlString(xmlKey);
-            encryptedData = rsaEnc.Encrypt(dataToEncrypt, false);
-
-            VK_codificada = ByteConverter.GetString(encryptedData);
-
-            ValidationCode_Codificado.Text = VK_codificada;
-            Send_PublicKey.Enabled = true;
-        }
-
-        private void btn_peticion_Click(object sender, EventArgs e)
-        {
-            string type = "ER";
-            string code_Nau = TaulaNau().Tables[0].Rows[0][2].ToString();
-            string code_Delivery = TaulaDelivery().Tables[0].Rows[0][1].ToString();
-            string ER_ms = type + code_Nau + code_Delivery;
-            SendMessage(ER_ms);
-        }
-
-
-        //-----------------------------------------------------------------------------------------------------------
         //----------------- CLIENT ----------------------------------------------------------------------------------
 
         string IP_Planet;
@@ -150,6 +121,8 @@ namespace Nau
         string IP_Nau;
         string Port_Nau;
         string Port1_Nau;
+
+        // ------- Información ------------------
 
         public DataSet TaulaPlanet()
         {
@@ -173,10 +146,32 @@ namespace Nau
             return Data_Delivery;
         }
 
+        public DataTable TaulaDescodificar()
+        {
+            string SELECT = "SELECT Word, Numbers FROM InnerEncryptionData where IdInnerEncryption = '" + comboPlanet.SelectedValue + "'";
+            string TAULA = "InnerEncryptionData";
+            DataTable Data_Delivery = bbdd.PortarPerTaula(TAULA, SELECT);
+            return Data_Delivery;
+        }
+
+        Dictionary<String, String> Diccionario_Code = new Dictionary<string, string>();
+        private void LibreriaCode()
+        {
+            DataTable hola = TaulaDescodificar();
+            for (int i = 0; i < hola.Rows.Count; i++)
+            {
+                string valor = hola.Rows[i]["Numbers"].ToString();
+                string lletra = hola.Rows[i]["Word"].ToString();
+                Diccionario_Code.Add(valor, lletra);
+            }
+        }
+
+        //-----------------COMUNICAION CON EL PLANETA-------------------------------
+
         private void ping()
         {
             btn_comprovarXarxa.Enabled = false;
-            btn_desconnect.Enabled = false;
+            btn_desconnectServer.Enabled = false;
             Boolean xarxaDisponible;
             xarxaDisponible = NetworkInterface.GetIsNetworkAvailable();
 
@@ -207,13 +202,13 @@ namespace Nau
                 {
                     pnl_status.BackColor = Color.Red;
                     btn_comprovarXarxa.Enabled = true;
-                    btn_desconnect.Enabled = false;
+                    btn_desconnectServer.Enabled = false;
                 }
                 else
                 {
                     pnl_status.BackColor = Color.Green;
                     btn_comprovarXarxa.Enabled = true;
-                    btn_desconnect.Enabled = true;
+                    btn_desconnectServer.Enabled = true;
                 }
             }
             else
@@ -228,12 +223,25 @@ namespace Nau
 
             Fil_ping = new Thread(ping);
             Fil_ping.Start();
-            btn_sendMessage.Enabled = true;
-            btn_desconnect.Enabled = true;
+            //btn_sendMessage.Enabled = true;
+            btn_desconnectServer.Enabled = true;
             btn_peticion.Enabled = true;
         }
 
-        //----------------------COMUNICAION CON EL PLANETA-------------------------------------------
+        // ------- Mensajes Enviados ------------
+
+        private void btn_peticion_Click(object sender, EventArgs e)
+        {
+            string type = "ER";
+            string code_Nau = TaulaNau().Tables[0].Rows[0][2].ToString();
+            string code_Delivery = TaulaDelivery().Tables[0].Rows[0][1].ToString();
+            string ER_ms = type + code_Nau + code_Delivery;
+            lbl_INFO.Text = "Waiting answer";
+            gif_info.URL = Application.StartupPath + @"\imatges\waiting.png";
+            SendMessage(ER_ms);
+
+        }
+
         string Smessage;
         string info_warring;
 
@@ -249,67 +257,279 @@ namespace Nau
             }
             catch
             {
-                //MessageBox.Show("Servidor inaccessible");
-                info_warring = "Servidor inaccessible";
-                Warning _warning = new Warning();
-                _warning.INFO = info_warring;
-                _warning.Show();
+                lbl_INFO.Text = "Server inaccessible";
+                gif_info.URL = Application.StartupPath + @"\imatges\err_serv.png";
             }
+        }
+
+        // ------- Mensajes Recibidos -----------
+
+        string PathImgs = Application.StartupPath + @"\imatges";
+        public void message_planet(string ms)
+        {
+            string request = ms.Substring(0, 2);
+            string answer = ms.Substring(14, 2);
+            string Message, Icon = "";
+
+            if (request == "VR")
+            {
+                if (answer == "VP")
+                {
+                    Message = "Validation ln Progress";
+                    Icon = PathImgs + @"\load.gif";
+
+                }
+                else if (answer == "AD")
+                {
+                    Message = "Access Denied";
+                    Icon = PathImgs + @"\error1.png";
+
+                }
+                else if (answer == "AG")
+                {
+
+                    Message = "Access Granted";
+                    Icon = PathImgs + @"\descarga1.png";
+
+                }
+                else
+                {
+                    Message = "Error message: " + ms;
+                    Warning _warning = new Warning();
+                    _warning.INFO = Message;
+                    _warning.Show();
+                }
+            }
+            else
+            {
+                Message = "Error message: " + ms;
+                gif_info.URL = PathImgs + @"\warring.png";
+            }
+
+            lbl_INFO.Text = Message;
+            gif_info.URL = Icon;
+        }
+
+        // ------- Proceso VK -------------------
+
+        string VK_codificada;
+        string xmlKey;
+        byte[] encryptedData;
+
+        private void CatchKey_Click(object sender, EventArgs e)
+        {
+            string query = "SELECT ValidationCode FROM InnerEncryption where idPlanet = " + comboPlanet.SelectedValue;
+            string taula = "InnerEncryption";
+            lbl_VK.Text = bbdd.PortarPerTaula(taula, query).Rows[0][0].ToString();
+
+            string query_key = "SELECT XMLKey FROM PlanetKeys where idPlanet = " + comboPlanet.SelectedValue;
+            string taula_key = "PlanetKeys";
+            xmlKey = bbdd.PortarPerTaula(taula_key, query_key).Rows[0][0].ToString();
+
+            btn_Codificar.Enabled = true;
+        }
+
+        private void Codificar_Click(object sender, EventArgs e)
+        {
+            UnicodeEncoding ByteConverter = new UnicodeEncoding();
+            byte[] dataToEncrypt = ByteConverter.GetBytes(lbl_VK.Text);
+
+            RSACryptoServiceProvider rsaEnc = new RSACryptoServiceProvider();
+
+            rsaEnc.FromXmlString(xmlKey);
+            encryptedData = rsaEnc.Encrypt(dataToEncrypt, false);
+
+            VK_codificada = ByteConverter.GetString(encryptedData);
+
+            lbl_VK_codificado.Text = VK_codificada;
+            btn_Send_VK.Enabled = true;
         }
 
         private void SendVK(byte[] dades)
         {
-            TcpClient client = new TcpClient(IP_Planet, Convert.ToInt32(Port1_Planet));
-            NetworkStream ns = client.GetStream();
-            ns.Write(dades, 0, dades.Length);
-        }
-
-        Thread SendPort1;
-
-        private void btn_sendMessage_Click(object sender, EventArgs e)
-        {
             try
             {
-                sendPort();
-                SendPort1 = new Thread(sendPort1);
-                SendPort1.Start();
+                TcpClient client = new TcpClient(IP_Planet, Convert.ToInt32(Port1_Planet));
+                NetworkStream ns = client.GetStream();
+                ns.Write(dades, 0, dades.Length);
+                //sendPort1();
+                lbl_INFO.Text = "Message sent";
+                gif_info.URL = PathImgs + @"\ing.png";
             }
             catch
             {
-                //MessageBox.Show("Servidor inaccessible");
-                info_warring = "Servidor inaccessible";
-                Warning _warning = new Warning();
-                _warning.INFO = info_warring;
-                _warning.Show();
+                lbl_INFO.Text = "Server inaccessible (VK)";
+                gif_info.URL = Application.StartupPath + @"\imatges\err_serv.png";
             }
+        }
+
+        
+
+        //______________________________________________________________
+        private void btn_sendMessage_Click(object sender, EventArgs e)
+        {
+            //sendPort();
         }
 
         public void sendPort()
         {
             TcpClient client = new TcpClient(IP_Planet, Convert.ToInt32(Port_Planet));
-            if (txb_message.Text == "")
-            {
-                //MessageBox.Show("El missatge no por estar buit");
-                info_warring = "El missatge no por estar buit";
-                Warning _warning = new Warning();
-                _warning.INFO = info_warring;
-                _warning.Show();
-            }
-            else
-            {
-                Byte[] dades = Encoding.ASCII.GetBytes(txb_message.Text);
-                NetworkStream ns = client.GetStream();
-                ns.Write(dades, 0, dades.Length);
-                lbx_Missatges.Items.Add("YOU: " + txb_message.Text);
-            }
+            //if (txb_message.Text == "")
+            //{
+            //    info_warring = "El missatge no por estar buit";
+            //    Warning _warning = new Warning();
+            //    _warning.INFO = info_warring;
+            //    _warning.Show();
+            //}
+            //else
+            //{
+            //    Byte[] dades = Encoding.ASCII.GetBytes(txb_message.Text);
+            //    NetworkStream ns = client.GetStream();
+            //    ns.Write(dades, 0, dades.Length);
+            //    lbx_Missatges.Items.Add("YOU: " + txb_message.Text);
+            //}
+        }
+        //________________________________________________________________
+
+
+        
+
+        Thread Hilo_VK;
+        private void Send_VK_Click(object sender, EventArgs e)
+        {
+            SendMessage("VK");
+            Thread.Sleep(1000);
+            Hilo_VK = new Thread(SVK);
+            Hilo_VK.Start();
         }
 
-        public void sendPort1()
+        private void SVK()
         {
+            lbl_INFO.Text = "Sending message";
+            gif_info.URL = PathImgs + @"\sending.gif";
+            Thread.Sleep(1000);
+            SendVK(encryptedData);
+            Hilo_VK.Abort();
+        }
+
+        // ------- Proceso PACS -------------------
+        Thread Descodificar;
+        private void btn_des_zip_Click(object sender, EventArgs e)
+        {
+            lbl_INFO.Text = "Decoding PACS";
+            gif_info.URL = PathImgs + @"\load.gif";
+            Descodificar = new Thread(descodificacion_zip);
+            Descodificar.Start();
+            
+            //SendPort1 = new Thread(sendPort1);
+            //SendPort1.Start();
+        }
+
+        private void descodificacion_zip()
+        {
+            LibreriaCode();
+            btn_more_PACS.Show();
+
+            string extractPath = Application.StartupPath + @"\Fitxers\PACS";
+
+            if (Directory.Exists(extractPath))
+            {
+                Directory.Delete(extractPath, true);
+            }
+            ZipFile.ExtractToDirectory(zipPath, extractPath);
+
+            for(int i=1; i<4; i++)
+            {
+                string text = File.ReadAllText(extractPath + @"\PACS" + i + ".txt");
+                string path = Application.StartupPath + @"\Fitxers\PACS" + i + "_desc.txt";
+
+                FileStream fs = new FileStream(path, FileMode.Create, FileAccess.Write);
+                StreamWriter writer = new StreamWriter(fs);
+                int leido = 0;
+
+                bar_PACS1.Maximum = text.Length - 3;
+                bar_PACS2.Maximum = text.Length - 3;
+                bar_PACS3.Maximum = text.Length - 3;
+                bar_PACS1.Step = 3;
+                bar_PACS2.Step = 3;
+                bar_PACS3.Step = 3;
+
+                while (leido < text.Length - 3)
+                {
+                    string codi = text.Substring(leido, 3);
+
+                    if (Diccionario_Code.TryGetValue(codi, out string value))
+                    {
+                        string letra = value;
+                        writer.Write(letra);
+                        leido = leido + 3;
+
+                        if (i == 1)
+                        {
+                            bar_PACS1.PerformStep();
+                            leido = bar_PACS1.Value;
+                        }
+                        else if (i == 2)
+                        {
+                            bar_PACS2.PerformStep();
+                            leido = bar_PACS2.Value;
+                        }
+                        else if (i == 3)
+                        {
+                            bar_PACS3.PerformStep();
+                            leido = bar_PACS3.Value;
+                        }
+                    }
+                }
+                writer.Close();
+            }
+
+            
+            string txtHash, txtPACS = "";
+
+            for (int i = 1; i < 4; i++)
+            {
+                string text = File.ReadAllText(Application.StartupPath + @"\Fitxers\PACS" + i + "_desc.txt");
+                string PACS1 = "", PACS2 = "", PACS3 = "";
+
+                if (i == 1)
+                {
+                    PACS1 = text;
+                }
+                else if (i == 2)
+                {
+                    PACS2 = text;
+                }
+                else if (i == 3)
+                {
+                    PACS3 = text;
+                }
+
+                string PACS_desc = Application.StartupPath + @"\Fitxers\PACS_Desc.txt";
+                FileStream fs = new FileStream(PACS_desc, FileMode.Create, FileAccess.Write);
+                StreamWriter wr = new StreamWriter(fs);
+                txtPACS = PACS1 + PACS2 + PACS3;
+                wr.Write(txtPACS);
+                wr.Close();
+            }
+            pnl_plus_PACS.Hide();
+            btn_more_PACS.Hide();
+            btn_less_PACS.Hide();
+            lbl_INFO.Text = "PACS decoded and sent";
+            gif_info.URL = PathImgs + @"\fichero_enviado.png";
+
+            Hilo_SendPACS = new Thread(sendPort1_PACS);
+            Hilo_SendPACS.Start();
+        }
+
+        Thread Hilo_SendPACS;
+        public void sendPort1_PACS()
+        {
+            
             TcpClient client = new TcpClient(IP_Planet, Convert.ToInt32(Port1_Planet));
             NetworkStream ns_zip = client.GetStream();
 
-            string zipFile = Application.StartupPath + @"\Fitxers\PACS_m.zip";
+            string zipFile = Application.StartupPath + @"\Fitxers\PACS_Desc.txt";
             byte[] SendingBuffer = null;
             var BufferSize = 50024;
             FileStream Fs = new FileStream(zipFile, FileMode.Open, FileAccess.Read);
@@ -327,90 +547,43 @@ namespace Nau
                 }
                 else
                     CurrentPacketLength = TotalLength;
-                    SendingBuffer = new byte[CurrentPacketLength];
-                    Fs.Read(SendingBuffer, 0, CurrentPacketLength);
-                
+                SendingBuffer = new byte[CurrentPacketLength];
+                Fs.Read(SendingBuffer, 0, CurrentPacketLength);
+
                 ns_zip.Write(SendingBuffer, 0, (int)SendingBuffer.Length);
             }
             Fs.Close();
             ns_zip.Close();
         }
 
-        public void message_planet(string ms)
+        private void btn_less_PACS_Click(object sender, EventArgs e)
         {
-            string request = ms.Substring(0, 2);
-            string answer = ms.Substring(14, 2);
-
-            if (request == "VR")
-            {
-                if (answer == "VP")
-                {
-                    string Message = "Validation ln Progress";
-                    Info _info = new Info();
-                    _info.INFO = Message;
-                    _info.ICON = "info_icon.png";
-                    _info.Show();
-
-                }
-                else if (answer == "AD")
-                {
-                    string Message = "Access Denied";
-                    Info _info = new Info();
-                    _info.ICON = "info_icon.png";
-                    _info.INFO = Message;
-                    _info.Show();
-                }
-                else if (answer == "AG")
-                {
-                    MessageBox.Show("Access Granted");
-                    string Message = "Access Denied";
-                    Info _info = new Info();
-                    _info.ICON = "error1.png";
-                    _info.INFO = Message;
-                    _info.Show();
-                }
-                else
-                {
-                    string Message = "Error message: " + ms;
-                    Warning _warning = new Warning();
-                    _warning.INFO = Message;
-                    _warning.Show();
-                }
-            }
-            else
-            {
-                string Message = "Error message: " + ms;
-                //Warning _warning = new Warning();
-                //_warning.INFO = Message;
-                //_warning.Show();
-            }
+            pnl_plus_PACS.Hide();
+            btn_less_PACS.Hide();
+            btn_more_PACS.Show();
         }
 
-        private void Send_PublicKey_Click(object sender, EventArgs e)
+        private void btn_more_PACS_Click(object sender, EventArgs e)
         {
-            Smessage = "VK has been sent";
-            SendMessage(Smessage);
-            Thread.Sleep(1000);
-            SendVK(encryptedData);
+            pnl_plus_PACS.Show();
+            btn_less_PACS.Show();
+            btn_more_PACS.Hide();
         }
 
-        //---------------------- FIN COMUNICAION CON EL PLANETA ----------------------------------------------------------
+        //-----------------FIN COMUNICAION CON EL PLANETA---------------------------
 
         private void btn_desconnect_Click(object sender, EventArgs e)
         {
-            if (this.Fil_ping != null)
-            {
-                Fil_ping.Abort();
-            }
+            cerrar_CLIENT();
             pnl_status.BackColor = Color.Red;
-            lbx_console.Items.Clear();
-            txb_message.Text = "";
-            btn_sendMessage.Enabled = false;
-            btn_desconnect.Enabled = false;
+            lbx_Missatges.Items.Clear();
+            btn_desconnectServer.Enabled = false;
         }
 
         //----------------- FIN CLIENT -----------------------------------------------------------------------------------
-        //----------------------------------------------------------------------------------------------------------------
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        
         //----------------- SERVIDOR -------------------------------------------------------------------------------------
 
         Thread comprobacio_conexio;
@@ -428,8 +601,8 @@ namespace Nau
                 comprobacio_conexio.Start();
                 IsConnected = true;
                 img_server.BackgroundImage = Image.FromFile(Application.StartupPath + @"\imatges\serv_on2.png");
-                Serv_On.Enabled = false;
-                Serv_Off.Enabled = true;
+                btn_Serv_On.Enabled = false;
+                btn_Serv_Off.Enabled = true;
             }
         }
         
@@ -447,11 +620,12 @@ namespace Nau
             catch (Exception ex)
             {
                 string Message = ex.Message;
-                Warning _warning = new Warning();
-                _warning.INFO = Message;
-                _warning.Show();
+                lbl_INFO.Text = Message;
+                gif_info.URL = Application.StartupPath + @"\imatges\warring.png";
             }
         }
+        
+        // ------- Recibir MENSAJES ---------------
 
         public void conexionPort()
         {
@@ -474,8 +648,10 @@ namespace Nau
                 }
             }
         }
-        
-        //------------ RECIBIR FITCHEROS ZIP ---------------------------------------------------------------------------------
+
+        // ------- Recibir FITCHEROS ZIP ----------
+
+        string zipPath = Application.StartupPath + @"\Fitxers\PACS.zip";
         public void conexionPort1()
         {
             int BufferSize = 1024;
@@ -491,14 +667,11 @@ namespace Nau
                     clientF = Listener2.AcceptTcpClient();
                     ns_zip = clientF.GetStream();
                     Byte[] buffer_zip = new byte[1024];
-                    string zipFile = Application.StartupPath + @"\Fitxers\PACS.zip";
-
 
                     string SaveFileName = string.Empty;
 
-
                     int totalrecbytes = 0;
-                    FileStream Fs = new FileStream(zipFile, FileMode.OpenOrCreate, FileAccess.Write);
+                    FileStream Fs = new FileStream(zipPath, FileMode.OpenOrCreate, FileAccess.Write);
                     while ((RecBytes = ns_zip.Read(RecData, 0, RecData.Length)) > 0)
                     {
                         Fs.Write(RecData, 0, RecBytes);
@@ -510,21 +683,36 @@ namespace Nau
                     Fs.Close();
                     
                     ns_zip.Close();
+                    btn_DescodePACS.Enabled = true;
+                    lbl_INFO.Text = "Downloaded PACS files";
+                    gif_info.URL = PathImgs + @"\fichero1.png";
                 }
             }
         }
 
-        //------------ DESCONECTAR SERVER ------------------------------------------------------------------------------------
+        //------------ DESCONECTAR SERVER ------------------------------------------
+
         private void btn_desconnect_serv_Click(object sender, EventArgs e)
         {
             lbx_Missatges.Items.Clear();
-            cerrar();
+            cerrar_SERVER();
             img_server.BackgroundImage = Image.FromFile(Application.StartupPath + @"\imatges\serv_off.png");
-            Serv_On.Enabled = true;
-            Serv_Off.Enabled = false;
+            btn_Serv_On.Enabled = true;
+            btn_Serv_Off.Enabled = false;
         }
 
+        //------------ FIN SERVIDOR -------------------------------------------------------------------------------------------
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        //------------ CERRAR TODOS LOS PROCESOS ------------------------------------------------------------------------------
+
         public void cerrar()
+        {
+            cerrar_SERVER();
+            cerrar_CLIENT();
+        }
+        public void cerrar_SERVER()
         {
             IsConnected = false;
             if (this.comprobacio_conexio != null)
@@ -537,14 +725,14 @@ namespace Nau
                 Listener.Stop();
             }
 
-            //if (this.client != null)
-            //{
-            //   client.Close();
-            //}
-
             if (this.ns != null)
             {
                 ns.Close();
+            }
+
+            if (this.ns_zip != null)
+            {
+                ns_zip.Close();
             }
 
             if (this.ConexioPort != null)
@@ -557,13 +745,34 @@ namespace Nau
                 ConexioPort1.Abort();
             }
 
-            if (this.SendPort1 != null)
+            //if (this.SendPort1 != null)
+            //{
+            //    SendPort1.Abort();
+            //}
+        }
+        public void cerrar_CLIENT()
+        {
+            IsConnected = false;
+            if (this.Fil_ping != null)
             {
-                SendPort1.Abort();
+                Fil_ping.Abort();
+            }
+
+            if (this.Hilo_VK != null)
+            {
+                Hilo_VK.Abort();
+            }
+
+            if (this.Hilo_SendPACS != null)
+            {
+                Hilo_SendPACS.Abort();
+            }
+
+            if (this.Descodificar != null)
+            {
+                Descodificar.Abort();
             }
         }
-
-        //----------------- FIN SERVIDOR ---------------------------------------------------------------------
         //----------------------------------------------------------------------------------------------------
     }
 }

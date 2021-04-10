@@ -59,10 +59,10 @@
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(619, 580);
+            this.button1.Location = new System.Drawing.Point(600, 560);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(525, 289);
+            this.button1.Size = new System.Drawing.Size(548, 305);
             this.button1.TabIndex = 1;
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -80,6 +80,7 @@
             this.botoN_X1.Name = "botoN_X1";
             this.botoN_X1.Size = new System.Drawing.Size(40, 35);
             this.botoN_X1.TabIndex = 2;
+            this.botoN_X1.Text = " ";
             this.botoN_X1.UseVisualStyleBackColor = false;
             // 
             // Nau

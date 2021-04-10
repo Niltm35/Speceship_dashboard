@@ -43,14 +43,16 @@ namespace Nau
             this.lbl_message.Name = "lbl_message";
             this.lbl_message.Size = new System.Drawing.Size(234, 84);
             this.lbl_message.TabIndex = 3;
+            this.lbl_message.Text = "Validation ln Progress";
             this.lbl_message.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // img_icon
             // 
+            this.img_icon.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("img_icon.BackgroundImage")));
             this.img_icon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.img_icon.Location = new System.Drawing.Point(62, 87);
             this.img_icon.Name = "img_icon";
-            this.img_icon.Size = new System.Drawing.Size(90, 84);
+            this.img_icon.Size = new System.Drawing.Size(86, 84);
             this.img_icon.TabIndex = 2;
             this.img_icon.TabStop = false;
             // 
@@ -68,7 +70,6 @@ namespace Nau
             this.Name = "Info";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Info_Load);
             ((System.ComponentModel.ISupportInitialize)(this.img_icon)).EndInit();
             this.ResumeLayout(false);
 

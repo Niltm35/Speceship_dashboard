@@ -16,12 +16,5 @@ namespace Nau
         {
             InitializeComponent();
         }
-        public string INFO;
-        public string ICON;
-        private void Info_Load(object sender, EventArgs e)
-        {
-            lbl_message.Text = INFO;
-            img_icon.BackgroundImage = Image.FromFile(Application.StartupPath + @"\imatges\" + ICON); ;
-        }
     }
 }
